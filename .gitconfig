@@ -1,0 +1,9 @@
+[user]
+	name = David Lyon
+	email = dblyon@gmail.com
+[alias]
+	lol = log --oneline --graph --decorate
+[core]
+	excludesfile = /Users/dblyon/.gitignore_global
+[merge]
+	tool = p4merge
