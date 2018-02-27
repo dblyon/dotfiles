@@ -1,0 +1,35 @@
+sudo dd if=/home/user/Desktop/rescatux_0.30b3.iso of=/dev/sdc
+
+sudo dd if=/Users/dbl/Downloads/rescatux_0.30.2/rescatux_cdrom_usb_hybrid_i386_amd64-486_0.30.2_sg2d.iso of=/dev/disk3s
+sudo dd if=/Users/dbl/Downloads/rescatux_0.30.2/rescatux_cdrom_usb_hybrid_i386_amd64-486_0.30.2_sg2d.iso of=/dev/disk3s1
+sudo dd if=/Users/dbl/Downloads/rescatux_cdrom_usb_hybrid_i386_amd64-486_0.30.2_sg2d.iso of=/dev/disk3s2
+
+sudo dd if=/Users/dbl/Downloads/rescatux_0.30.2/rescatux_cdrom_usb_hybrid_i386_amd64-486_0.30.2_sg2d.iso of=/dev/disk3
+
+
+hdiutil convert -format UDRW -o /Users/dbl/Downloads/ubuntu-14.04.3-desktop-amd64.iso.img ~/path/to/ubuntu.iso
+--> didn't do since already iso
+# Bootable Ubuntu USB
+diskutil unmountDisk /dev/disk3
+sudo dd if=/Users/dbl/Downloads/ubuntu-14.04.3-desktop-amd64.iso of=/dev/rdisk3 bs=1m
+diskutil eject /dev/disk3
+
+
+diskutil unmountDisk /dev/disk3
+sudo dd if=/Users/dbl/Downloads/Asus_Laptop_N56VZ_WIN7_64_V4.00.iso of=/dev/rdisk3 bs=1m
+diskutil eject /dev/disk3
+
+diskutil unmountDisk /dev/disk3
+sudo dd if=/Users/dbl/Downloads/Win10_1511_German_x64.iso of=/dev/rdisk3
+diskutil eject /dev/disk3
+
+
+# Bootable Ubuntu USB
+diskutil unmountDisk /dev/disk3
+sudo dd if=/Users/dbl/Downloads/ubuntu-14.04.3-desktop-amd64.iso of=/dev/rdisk3 bs=1m
+diskutil eject /dev/disk3
+
+
+diskutil unmountDisk /dev/disk2
+sudo dd if=/Users/dbl/Downloads/Asus_Laptop_N56VZ_WIN7_64_V4.00.iso of=/dev/rdisk2 bs=1m
+diskutil eject /dev/disk2

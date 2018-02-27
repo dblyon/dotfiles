@@ -1,0 +1,89 @@
+Enrico Cappellini blastp settings:
+blastp -db nr  -task blastp-short -out XXX.txt -evalue 200000 -remote -query XXX.fasta  -ungapped -comp_based_stats F -num_descriptions 80  -best_hit_overhang 0.2 -best_hit_score_edge 0.2
+
+
+C:\UserProgs\blast-2.2.26+>makeblastdb -in fasta/uniprottemp.fasta -dbtype prot
+-out db/uniprottemp
+
+--> erstelle aus fasta eine blast such db.
+
+makeblastdb -in /UserProgs/Python2.7/dblscripte/MT_FASTA/fasta/IMGANR.FASTA
+-dbtype prot -out db/imganonred --> erstelle blastDB aus fasta (IMGA.fasta =
+original fasta mit red.seq.) --> erstelle blastDB aus fasta (IMGANonRed.fasta =
+nur Non Redundant Sequences) --> erstelle blastDB aus fasta (IMGANR.FASTA = neu
+heruntergeladene datei mit altem datum original fasta mit red.seq.)
+
+makeblastdb -in /UserProgs/Python2.7/dblscripte/MT_FASTA/fasta/IMGANR.FASTA
+-dbtype prot -out db/imganonred
+
+
+C:\UserProgs\blast-2.2.26+>blastp -query fasta/test.fasta -db db/uniprottemp
+
+--> blast suche
+
+
+
+C:\UserProgs\blast-2.2.26+>blastp -query fasta/test.fasta -db db/uniprottemp
+-out test.html -html -->output als html datei
+
+
+
+C:\UserProgs\blast-2.2.26+>blastp -query fasta/test.fasta -db db/uniprottemp
+-outfmt 7 -out result.table -->output als was anderes :) als table
+
+blastp -query /UserProgs/Python2.7/dblscripte/MT_FASTA/unique.fasta -db db/imganonred 
+-outfmt 7 -out upuni_in_imganr.table
+
+
+/UserProgs/Python2.7/dblscripte/MT_FASTA/fasta/UP501.FASTA -db db/imganonred
+-outfmt 7 -out up501_in_imganr.table --> blasting input = Uniprot_unique.fasta,
+blast against imgaNonRed (is blast DB file(s)), output = upuni_in_imganr.table
+--> blasting input = Uniprot_unique.fasta, blast against imgaNonRed (is blast DB
+file(s)), output = upuni_in_imganr.table
+
+2012.06.04: new query
+blastp -query /UserProgs/Python2.7/dblscripte/MT_fasta_mapping/MT_FASTA/fasta/of501inunique.fasta -db db/imganonred -outfmt 7 -out of501inunique_in_imganr.table
+
+
+### DBL INFO: 2012.05.30. IMGANR built from Mt3.5_GenesProteinSeq_20100825.FASTA
+### (instead of Mt3.5v5_GenesProteinSeq_20111014.FASTA)
+C:\UserProgs\blast-2.2.26+>makeblastdb -in /UserProgs/Python2.7/dblscripte/MT_FA
+STA/fasta/IMGANR.FASTA -dbtype prot -out db/imganonred
+
+Building a new DB, current time: 05/30/2012 18:33:10 New DB name: db/imganonred
+New DB title: /UserProgs/Python2.7/dblscripte/MT_FASTA/fasta/IMGANR.FASTA
+Sequence type: Protein Keep Linkouts: T Keep MBits: T Maximum file size:
+1073741824B Adding sequences from FASTA; added 45524 sequences in 1.27657
+seconds.
+
+C:\UserProgs\blast-2.2.26+>blastp -query /UserProgs/Python2.7/dblscripte/MT_FAST
+A/fasta/unique.fasta -db db/imganonred -outfmt 7 -out upuni_in_imganr.table
+Warning: lcl|Query_5253 tr|Q931E0|Q931E0_RHIME Formate dehydrogenase, major subu
+nit (Formate dehydrogenase alpha subunit) OS=Rhizobium meliloti (strain 1021) GN
+=fdoG PE=3 SV=3: Warning: One or more U or O characters replaced by X for alignm
+ent score calculations at positions 204
+
+C:\UserProgs\blast-2.2.26+>
+
+
+
+
+make blast-DB from IMGA.fasta:
+makeblastdb -in /UserProgs/Python2.7/dblscripte/MT_FASTA/fasta/IMGANR.FASTA
+-dbtype prot -out db/imganonred
+
+blast unique_501.fasta / unique_slaves.fasta  against IMGA.fasta:
+C:\UserProgs\blast-2.2.26+\
+blastp -query fasta/unique_slaves.fasta -db db/imganonred -outfmt 7 -out unique_slaves_in_imganr.table -num_threads<4>
+
+
+
+
+PIPEN:
+
+makeblastdb -in /bin/fasta/original/IMGA.FASTA -dbtype prot -out /bin/blast/db/imgadb
+
+blastp -query /bin/fasta/split/unique.fasta -db /bin/blast/db/imgadb -outfmt 7 -out upuni_in_imganr_delete.table -num_threads<4>
+
+
+

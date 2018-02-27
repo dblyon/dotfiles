@@ -1,0 +1,332 @@
+# google for PBS --> queuing system deamon. e.g. -M email address
+
+-M dblyon@gmail.com -m abe
+
+
+##########################################################################################
+##### mounting folders (http://wiki.bio.dtu.dk/computerome/index.php/Tips_and_Tricks)
+sshfs davily@computerome.cbs.dtu.dk:/home/people/davily /mnt/ome_home/ -o defer_permissions -o volname=ome_home -o follow_symlinks
+sshfs davily@computerome.cbs.dtu.dk:/home/projects/cu_10029 /mnt/ome_projects/ -o defer_permissions -o volname=ome_projects -o follow_symlinks
+umount /mnt/ome_home
+umount /mnt/ome_projects
+
+### DBL adapted Helen's script
+brew install sleepwatcher
+cp /usr/local/Cellar/sleepwatcher/2.2/de.bernhard-baehr.sleepwatcher-20compatibility-localuser.plist ~/Library/LaunchAgents
+echo '#!/bin/bash\numount ~/mnt/ome_home\numount ~/mnt/ome_projects' > ~/.sleep
+launchctl load ~/Library/LaunchAgents/de.bernhard-baehr.sleepwatcher-20compatibility-localuser.plist
+chmod +x ~/.sleep
+touch ~/.wakeup
+chmod +x ~/.wakeup
+brew services start sleepwatcher
+##########################################################################################
+
+
+#### Functional annotation Bacterial proteins AUTOMATION
+### fasta file
+# from local to Computerome
+scp /Users/dblyon/CloudStation/CPR/Vikings/fasta/fasta_files/HOMD_UPstyle_201607_AND_HOMD_backup_pre201607.fasta davily@computerome.cbs.dtu.dk:/home/projects/cu_10029/data/hmmer/HOMD_UPstyle_201607_AND_HOMD_backup_pre201607.fasta
+scp /Users/dblyon/CloudStation/CPR/Vikings/fasta/fasta_files/HOMD_UPstyle_201607_AND_HOMD_UPstyle_201508.fasta davily@computerome.cbs.dtu.dk:/home/projects/cu_10029/data/hmmer/HOMD_UPstyle_201607_AND_HOMD_UPstyle_201508.fasta
+# from Computerome to local
+scp davily@computerome.cbs.dtu.dk:/home/projects/cu_10029/data/hmmer/results_AN_2_HMMs_HOMD_UPstyle_201607_AND_HOMD_UPstyle_201508.txt /Users/dblyon/modules/cpr/metaprot/sql/downloads/results_AN_2_HMMs_HOMD_UPstyle_201607_AND_HOMD_UPstyle_201508.txt
+### HMMs
+http://eggnogdb.embl.de/download/eggnog_4.5/data/bactNOG/bactNOG.hmm.tar.gz
+
+##########################################################################################
+#### Functional annotation Bacterial proteins
+scp davily@computerome.cbs.dtu.dk:/home/projects/cu_10029/data/hmmer/results_AN_2_HMMs_qsub_v2.txt /Users/dblyon/Downloads/eggNOG/VikBac/HOMD_AN2NOGname_parsed.txt
+scp davily@computerome.cbs.dtu.dk:/home/projects/cu_10029/data/hmmer/results_AN_2_HMMs_qsub_v2.txt /Users/dblyon/modules/cpr/agotool/static/data/downloads/HOMD_AN2NOGname_parsed.txt
+scp davily@computerome.cbs.dtu.dk:/home/projects/jensenlab/people/davily/data/ms/AnnaF/MGF/20161114_QE5_nLC5_MEM_COLLAB_GeoG_919_02.mgf /Users/dblyon/Downloads/
+scp -r davily@computerome.cbs.dtu.dk:/home/projects/jensenlab/import/MSMS_Spectra_Figures /Users/dblyon/Downloads
+
+##########################################################################################
+### load modules
+module load tools
+module load pwiz/3.0-9576
+module load crux/2.1
+module load jre/1.7.0
+module load mpa-portable/1.0.6 mpa-viewer/1.0.4
+module load perl/5.20.2
+module load gnuplot/5.0.0
+module load tpp/4.8.0
+module load searchgui/2.8.5
+
+
+
+module load tools
+module load jre/1.8.0
+module load searchgui/3.1.4
+module load peptideshaker/1.13.6
+### infos
+load the modules, then cd to ... and check out the executables
+/services/tools/modulefiles/program-directory-of-interest
+module avail
+module load
+module unload
+
+e.g. 
+in
+/services/tools/modulefiles/searchgui
+/services/tools/modulefiles/peptideshaker
+there is 3.1.4 (but you can't cd into the dir)
+use:
+/services/tools/searchgui/3.1.4/SearchGUI-3.1.4.jar
+to point to this path when executing programs
+
+##########################################################################################
+# copy data (this created the folder /home/projects/cu_10029/data/ms/MS_data with the files)
+rsync -r /Volumes/JVO/Lyon/MS_data davily@computerome.cbs.dtu.dk:/home/projects/cu_10029/data/ms
+rsync -r /Volumes/JVO/Lyon/Enrico_RawFiles/mzML davily@computerome.cbs.dtu.dk:/home/projects/cu_10029/data/ms/Enrico
+
+rsync -ravz /Volumes/JVO/Lyon/MS_data/RMP_CH /mnt/projects/data/ms/MS_data # copies directory 
+rsync -ravz /Volumes/JVO/Lyon/MS_data/RMP_CH/ /mnt/projects/data/ms/MS_data # copies only content of directory 
+
+
+##########################################################################################
+### Computerome installing stuff
+# PYTHON
+pip install --upgrade pip --user
+pip install scipy --user
+
+##########################################################################################
+# Network drives CPR
+# work:
+smb://10.128.79.227/MLN
+smb://10.128.79.243/JVO
+smb://sundcifs12.sund.root.ku.dk/CPR
+# doesn't work:
+smb://192.38.86.3/CPR/Proteomics
+
+\\192.38.86.3\CPR\Proteomics /user:cprprot cM8alCjh
+\\10.128.79.227\MLN /user:massprot mlncpr14
+
+##########################################################################################
+
+##########################################################################################
+# invoke pip from a specific python interpeter
+python -m pip 
+e.g.: /opt/local/python -m pip # invoke pip from a specific python interpeter
+##########################################################################################
+
+##########################################################################################
+# suspend, 'un-suspend' and then logout --> don't use
+ctrl + z
+bg
+ctrl + d
+# the following didn't work:  >> hmmsearch_log.txt 2>&1 & 
+##########################################################################################
+
+##########################################################################################
+### login Lars's servers
+# if on "CPR" internet
+ssh dblyon@login.cbs.dtu.dk
+# then ssh to green 
+# green IP is 192.38.86.33 (ping green)
+# or if on "DTU" internet, ssh to green directly
+ssh dblyon@green
+# cd /home/people_orig/dblyon
+
+### IP addresses
+# SUND virtualserver
+ssh dblyon@10.34.6.92 # alias "ago"
+# GREEN
+ssh dblyon@192.38.86.33 # alias "green"
+ssh green
+# Computerome
+ssh davily@computerome.cbs.dtu.dk
+# Computerome
+username:  davily
+password:  
+ssh  davily@computerome.cbs.dtu.dk
+Remember to store your project data in /home/projects/cu_10029
+http://wiki.bio.dtu.dk/computerome/
+http://wiki.bio.dtu.dk/computerome/index.php/Batch_System
+https://wiki.cbs.dtu.dk/internal/index.php/System_Documentation:Job_Queue#Basic_operation
+##########################################################################################
+
+##########################################################################################
+### run eggNOG HMM search against oral-microbiome-fasta
+# copy data
+scp /Users/dblyon/Downloads/eggNOG/merged_bactNOG.hmm dblyon@green:/net/people/home/people/dblyon/data/
+scp /Users/dblyon/CloudStation/CPR/Ancient_Proteins_Project/fasta/fasta_files/HOMD_SP_v2/oral_microbiome_UPstyle.fasta dblyon@green:/net/people/home/people/dblyon/data/
+scp dblyon@green:/home/green1/dblyon/data/HOMD_against_bacHMM.out /Users/dblyon/Downloads/eggNOG/HOMD_against_bacHMM_partial.out
+scp dblyon /home/green1/dblyon/data/HOMD_against_bacHMM.out
+# run search with hmmsearch
+/net/people/home/people/dblyon/hmmer-3.1b2-linux-intel-x86_64/binaries/hmmsearch merged_bactNOG.hmm oral_microbiome_UPstyle.fasta > merged_bactNOG_hmm_against_OM_UPstyle.out 
+
+# run search with hmmscan
+Step 1: create an HMM database flatfile
+build individual HMM files and concatenate them --> merged_bactNOG.hmm 
+Step 2: compress and index the flatfile with hmmpress
+/net/people/home/people/dblyon/hmmer-3.1b2-linux-intel-x86_64/binaries/hmmpress merged_bactNOG.hmm
+--> 
+merged_bactNOG.hmm.h3m
+merged_bactNOG.hmm.h3i
+merged_bactNOG.hmm.h3f
+merged_bactNOG.hmm.h3p
+
+Step 3: search the HMM database with hmmscan
+hmmscan merged_bactNOG.hmm fasta
+
+/net/people/home/people/dblyon/hmmer-3.1b2-linux-intel-x86_64/binaries/hmmscan -o HOMD_against_bacHMM.out merged_bactNOG.hmm oral_microbiome_UPstyle.fasta 
+
+
+hmmscan -o output_deleteme.txt /Users/dblyon/Downloads/eggNOG/merged_bactNOG.hmm /Users/dblyon/CloudStation/CPR/Ancient_Proteins_Project/fasta/fasta_files/HOMD_SP_v2/oral_microbiome_UPstyle.fasta
+hmmscan -o output_deleteme.txt --cpu 8 /Users/dblyon/Downloads/eggNOG/merged_bactNOG.hmm /Users/dblyon/CloudStation/CPR/Ancient_Proteins_Project/fasta/fasta_files/HOMD_SP_v2/oral_microbiome_UPstyle.fasta
+
+ e.g. of hmmscan option usage
+hmmscan -o output.txt minifam 7LESS_DROME
+hmmscan --tblout output.txt minifam 7LESS_DROME
+hmmscan --domtblout output.txt minifam 7LESS_DROME
+hmmscan -E 1.0e-4 -o output.txt minifam 7LESS_DROME
+
+
+# copy results to local drive
+scp dblyon@green:/net/people/home/people/dblyon/data/merged_bactNOG_hmm_against_OM_UPstyle.out /Users/dblyon/Downloads/eggNOG/
+
+##### Summary
+# data needed
+/Users/dblyon/Downloads/eggNOG/
+merged_bactNOG.hmm
+merged_bactNOG.hmm.h3m
+merged_bactNOG.hmm.h3i
+merged_bactNOG.hmm.h3f
+merged_bactNOG.hmm.h3p
+/Users/dblyon/CloudStation/CPR/Ancient_Proteins_Project/fasta/fasta_files/HOMD_SP_v2/oral_microbiome_UPstyle.fasta
+
+##########################################################################################
+##########################################################################################
+# copying data to Computerome
+# /home/projects/cu_10029 project data location
+scp /Users/dblyon/CloudStation/CPR/Ancient_Proteins_Project/fasta/fasta_files/HOMD_SP_v2/oral_microbiome_UPstyle.fasta davily@computerome.cbs.dtu.dk:/home/people/davily/data/
+scp /Volumes/Speedy/FASTA/MixedSpecies_SwissProt.fasta davily@computerome.cbs.dtu.dk:/home/projects/jensenlab/people/davily/data/ms/fasta/
+scp /Users/dblyon/Downloads/eggNOG/merged_bactNOG.hmm"*" davily@computerome.cbs.dtu.dk:/home/people/davily/data/
+scp /Users/dblyon/install/hmmer-3.1b2-macosx-intel/tutorial/test_3entries.fasta davily@computerome.cbs.dtu.dk:/home/people/davily/data/
+mv /home/people/davily/data/* /home/projects/cu_10029/data/hmmer/
+
+qsub -W group_list=cu_10029 -l nodes=1:ppn=28:thinnode,walltime=1:00:00 peptideShaker.sh -M dblyon@gmail.com -m abe
+qsub -W group_list=jensenlab -l nodes=1:ppn=1:thinnode,walltime=1:00:00 ACCpro_computerome.py
+qsub -W group_list=cu_10029 -l nodes=1:ppn=1:thinnode,walltime=10:00:00 -I
+java -d64 -cp /home/projects/cu_10029/apps/SearchGUI-3.1.4/SearchGUI-3.1.4.jar eu.isas.searchgui.cmd.FastaCLI -in '/home/projects/cu_10029/data/ms/fasta/SGA-PA.fasta' -decoy
+
+/services/tools/hmmer/3.1b2/bin/hmmscan -o HOMD_against_bacHMM.out --cpu XXX merged_bactNOG.hmm oral_microbiome_UPstyle.fasta
+/services/tools/hmmer/3.1b2/bin/hmmscan -o HOMD_against_bacHMM.out --cpu 1 merged_bactNOG.hmm test_3entries.fasta
+
+
+scp davily@computerome.cbs.dtu.dk:/home/projects/cu_10029/data/hmmer/fasta_in_parts/output_in_parts/"*" /Users/dblyon/Downloads/eggNOG/output_in_parts/
+scp /Users/dblyon/modules/cpr/metaprot/functional_annotation.py davily@computerome.cbs.dtu.dk:/home/projects/cu_10029/data/hmmer/functional_annotation.py
+
+python ./functional_annotation.py
+qsub -W group_list=cu_10029 -l nodes=1:ppn=1,walltime=604800 -d /home/projects/cu_10029/data/hmmer script.sh
+qsub -W group_list=cu_10029 -l nodes=1:ppn=1,walltime=604800 -d /home/projects/cu_10029/data/hmmer functional_annotation.py
+
+#output/results:
+/home/projects/cu_10029/data/hmmer/results_AN_2_HMMs_qsub_v2.txt # worked 
+scp davily@computerome.cbs.dtu.dk:/home/projects/cu_10029/data/hmmer/results_AN_2_HMMs_qsub_v2.txt /Users/dblyon/Downloads/eggNOG/HOMD_AN2NOGname_parsed.txt
+
+
+module load moab torque
+#### script.sh
+#!/usr/bin/sh
+###/services/tools/hmmer/3.1b2/bin/hmmscan -o HOMD_against_bacHMM.out --cpu 32 merged_bactNOG.hmm test_3entries.fasta
+/services/tools/hmmer/3.1b2/bin/hmmscan -o HOMD_against_bacHMM.out --cpu 32 merged_bactNOG.hmm oral_microbiome_UPstyle.fasta
+
+####qsub -W group_list=cu_10029 -l nodes=1:ppn=1,walltime=604800 -d /home/people/davily/data/ script.sh
+# --> 10 days
+2106907              davily    Running    32  9:23:59:55  Mon Jan 25 17:27:55
+259200 3 days
+432000 5 days
+518400 6 days
+604800 7 days
+864000
+
+module load moab torque
+showq -u davily
+qstat -u davily
+checkjob <jobid>
+
+####Canceling a given job:
+$ canceljob <jobid>
+canceljob 2106894
+$ mjobctl -c <jobex>
+### Canceling all jobs of a given user:
+# mjobctl -c -w user=<someuser>
+### Re-queue a job:
+# mjobctl -R <jobex>
+### mjobctl -c -w user=davily # kill ALL jobs of user
+
+
+##########################################################################################
+##########################################################################################
+#### Testing things
+### hmmsearch: Search a protein profile HMM against a protein sequence database.
+# HMM against fasta
+hmmsearch globins4.hmm /Users/dblyon/CloudStation/CPR/Ancient_Proteins_Project/fasta/fasta_files/HOMD_SP_v2/uniprot_sprot_UPstyle.fasta > globins4_temp.out
+hmmsearch /Users/dblyon/Downloads/eggNOG/merged_bactNOG.hmm Pgingi_B2RLK2_test.fasta > Pgingi_B2RLK2_test.out
+hmmsearch /Users/dblyon/Downloads/eggNOG/merged_bactNOG.hmm /Users/dblyon/CloudStation/CPR/Ancient_Proteins_Project/fasta/fasta_files/HOMD_SP_v2/oral_microbiome_UPstyle.fasta > test.out
+
+hmmsearch merged_bactNOG.hmm oral_microbiome_UPstyle.fasta > merged_bactNOG_hmm_against_OM_UPstyle.out
+
+### phmmer: Search a single protein sequence against a protein sequence database. (BLASTP-like)
+
+### hmmscan: Search a protein sequence against a protein profile HMM database.
+# protein seq against HMM-DB
+##########################################################################################
+##########################################################################################
+#### Copying files from Green to local (Helen and Lars' dictionaries for TaxNames to TaxID
+### copy from green to cbs
+# login @ cbs
+scp -r dblyon@green:/home/people/helen/dictionary /home/people/dblyon/
+
+### copy from cbs to local
+scp -r dblyon@login.cbs.dtu.dk:/home/people/dblyon/dict_helen /Users/dblyon/CloudStation/CPR/Ancient_Proteins_Project/fasta
+##########################################################################################
+
+
+### Waiting for specific jobs
+qsub -W depend=afterok:12345 <your script>
+
+### Show free resources:
+showbf -f thinnode
+
+### Badly behaving jobs
+module load tools pestat
+pestat -f -u davily
+
+qsub -W group_list=jensenlab -l nodes=1:ppn=28:thinnode,walltime=168:00:00 searchGUI_peptideShaker.sh -M dblyon@gmail.com -m abe
+
+./bin/run_SCRATCH-1D_predictors.sh test.fasta test.out 4
+
+##########################################################################################
+##########################################################################################
+#### Comet, Percolator, searchGUI, peptideShaker
+# create decoy (reverse) fasta index
+java -d64 -cp /home/projects/jensenlab/people/davily/apps/SearchGUI-3.2.14/SearchGUI-3.2.14.jar eu.isas.searchgui.cmd.FastaCLI -in '/home/projects/jensenlab/people/davily/data/ms/fasta/MixedSpecies_SwissProt.fasta' -decoy
+
+
+##########################################################################################
+##########################################################################################
+### screen or tmux
+- ssh to box
+screen
+- start script
+(ctrl + a) + d # to detach
+--> now you are back on the box
+# logout from ssh
+# ssh back to the box
+# screen -list or screen -r
+# now you are back where you started the script
+# or if multiple screens running, attach a specific screen using:
+screen -r 12345
+##########################################################################################
+##########################################################################################
+# you want file sizes between 1000 and 1100 bytes
+find . -type f -size +1000c -a -size -1100c
+find *.sh.e* -type f -size -10c
+
+17681078.risoe-r04-sn0  davily      batch    chunk_212.sh      21883     1      4       --   24:00:00 R  00:13:26
+17581841.risoe-r04-sn0  davily      batch    chunk_1021.sh     10434     1      4       --  672:00:00 C       --
+##########################################################################################
+##########################################################################################
+
+
