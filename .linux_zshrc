@@ -1,42 +1,8 @@
-###############################################################################
-source ~/.profile
-###############################################################################
-# David Lyon personal settings
-export PATH=/Users/dblyon/anaconda3/bin:/usr/local/bin:/Users/dblyon/.rvm/gems/ruby-2.4.0/bin:/usr/local:/usr/local/Cellar:/Users/dblyon/bin:/Users/dblyon/install/bin:/Users/dblyon/install:/Users/dblyon/install/crux-3.1.Darwin.i386/bin:/Users/dblyon/install/qcachegrind/qcachegrind.app/Contents/MacOS:/Users/dblyon/scripts:$PATH
-export PYTHONPATH=$PYTHONPATH:/Users/dblyon/modules/metaprot:/Users/dblyon/modules/cpr/metaprot/sql:/Users/dblyon/miniconda3:/Users/dblyon/Downloads/introduction_to_ml_with_python
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-## use Python 2.7 as the default
-#source activate python2
-# Activate ETE/Anaconda
-#unset PYTHONPATH; export PATH=~/anaconda_ete/bin:$PATH; export DYLD_FALLBACK_LIBRARY_PATH=~/anaconda_ete/lib
-################################################################################
-alias ago="ssh dblyon@10.34.6.92" # this is the new red hat server # used to be david@ip address
-alias newgo="ssh dblyon@10.34.6.24" # old debian server
-alias cbs="ssh dblyon@login.cbs.dtu.dk"
-alias green="ssh dblyon@green.jensenlab.org"
-alias ome="ssh davily@computerome.cbs.dtu.dk"
-alias omemnth="sshfs davily@computerome.cbs.dtu.dk:/home/people/davily /mnt/home/ -o defer_permissions -o volname=home -o follow_symlinks"
-alias omemntp="sshfs davily@computerome.cbs.dtu.dk:/home/projects/cu_10029 /mnt/projects/ -o defer_permissions -o volname=projects -o follow_symlinks"
-##### mounting folders (http://wiki.bio.dtu.dk/computerome/index.php/Tips_and_Tricks)
-#sshfs davily@computerome.cbs.dtu.dk:/home/people/davily /mnt/ome_home/ -o defer_permissions -o volname=ome_home -o follow_symlinks
-#sshfs davily@computerome.cbs.dtu.dk:/home/projects/cu_10029 /mnt/ome_projects/ -o defer_permissions -o volname=ome_projects -o follow_symlinks
-#umount /mnt/ome_home
-#umount /mnt/ome_projects
-alias ø="say røll grøll mell fløll"
-alias meta="cd /Users/dblyon/modules/cpr/metaprot"
-alias modules="cd /Users/dblyon/modules/cpr"
-alias commands="cd ~/CloudStation/commands/"
-alias fdr="cd /Users/dblyon/modules/cpr/fdriter"
 alias ll='ls -lhtr'
 alias ld="ls -ld */"  # List in long format, only directories
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias cdc='cd ~/CloudStation/CPR/'
-alias pwdcp='pwd | pbcopy && export dir=`pwd`'
-alias opena="open -a Atom"
-################################################################################
 ################################################################################
 ### antigen from https://github.com/zsh-users/antigen
 source /usr/local/share/antigen/antigen.zsh
@@ -55,17 +21,12 @@ antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-
 # Tell Antigen that you're done.
 antigen apply
 ################################################################################
-
 ################################################################################
 ### https://github.com/caiogondim/bullet-train.zsh
 ### Powerline and Oh my zsh settings
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/dblyon/.oh-my-zsh
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bullet-train" #"powerlevel9k/powerlevel9k" # "agnoster" #"bullet-train"
+ZSH_THEME="bullet-train"
 
 plugins=(
   git
@@ -95,12 +56,6 @@ BULLETTRAIN_GIT_BG="black"
 BULLETTRAIN_GIT_FG="default"
 
 source $ZSH/oh-my-zsh.sh
-
-####### DBL modifications below
-#### from https://powerline.readthedocs.io/en/latest/usage/shell-profmpts.html#zsh-prompt
-# pip show powerline-status
-# --> /Users/dblyon/anaconda3/lib/python3.6/site-packages
-# . /Users/dblyon/anaconda3/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 ###############################################################################
 # History settings
 export HISTFILE=~/.history
@@ -137,6 +92,9 @@ zstyle ':completion:*:history-words' remove-all-dups yes
 
 # alias for generating histogram
 alias -g hist="sort | uniq -c | sort -n"
+
+# alias for sampling from files --> DON'T uncomment since name collision with awesome python version
+#alias -g sam='nl | shuf | head | sort -n | cut -f2-'
 
 # alias for diff if colordiff is installed
 if (( $+commands[colordiff] )); then
@@ -263,4 +221,4 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/opt/qt/bin:$PATH"
 ########################################################################################################################
 ### from https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/ for dotfiles on github
-alias config='/usr/local/bin/git --git-dir=/Users/dblyon/.cfg/ --work-tree=/Users/dblyon'
+alias config='/usr/local/bin/git --git-dir=~/.cfg/ --work-tree=~'
