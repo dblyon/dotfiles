@@ -3,9 +3,10 @@ alias ld="ls -ld */"  # List in long format, only directories
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+TERM=xterm
 ################################################################################
 ### antigen from https://github.com/zsh-users/antigen
-source /usr/local/share/antigen/antigen.zsh
+source /home/dblyon/antigen.zsh # /usr/local/share/antigen/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
@@ -25,7 +26,7 @@ antigen apply
 ### https://github.com/caiogondim/bullet-train.zsh
 ### Powerline and Oh my zsh settings
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/dblyon/.oh-my-zsh
+export ZSH=/home/dblyon/.oh-my-zsh
 ZSH_THEME="bullet-train"
 
 plugins=(
@@ -47,7 +48,7 @@ BULLETTRAIN_TIME_FG="default"
 
 BULLETTRAIN_CONTEXT_BG="blue"
 BULLETTRAIN_CONTEXT_FG="default"
-BULLETTRAIN_CONTEXT_DEFAULT_USER="dblyon"
+#BULLETTRAIN_CONTEXT_DEFAULT_USER="dblyon"
 
 BULLETTRAIN_DIR_BG="cyan"
 BULLETTRAIN_DIR_FG="white"
@@ -222,3 +223,4 @@ export PATH="/usr/local/opt/qt/bin:$PATH"
 ########################################################################################################################
 ### from https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/ for dotfiles on github
 alias config='/usr/local/bin/git --git-dir=~/.cfg/ --work-tree=~'
+alias config='/usr/bin/git --git-dir=/home/dblyon/.cfg/ --work-tree=/home/dblyon'
