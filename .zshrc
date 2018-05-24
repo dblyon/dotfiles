@@ -26,14 +26,14 @@ export LANG=en_US.UTF-8
 alias ø="say røll grøll mell fløll"
 alias meta="cd /Users/dblyon/modules/cpr/metaprot"
 alias modules="cd /Users/dblyon/modules/cpr"
-alias commands="cd ~/CloudStation/commands/"
+alias commands="cd ~/SynologyDrive/commands/"
 alias fdr="cd /Users/dblyon/modules/cpr/fdriter"
 alias ll='ls -lhtr'
 alias ld="ls -ld */"  # List in long format, only directories
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias cdc='cd ~/CloudStation/CPR/'
+alias cdc='cd ~/SynologyDrive/CPR/'
 alias pwdcp='pwd | pbcopy && export dir=`pwd`'
 alias opena="open -a Atom"
 alias gimp="/Applications/GIMP.app/Contents/MacOS/GIMP"
