@@ -1,0 +1,29 @@
+# search for files larger than 2MB and append to .gitignore
+find . -size +2M | cat >> .gitignore
+
+# Uncompress archive into folder
+mkdir foo
+tar -xzf bar.tar.gz -C foo
+
+
+find /Users/dblyon/CloudStation/wedding/AndersSalman.photoslibrary/ -type f | gawk '{print "mv", $0, "/Users/dblyon/CloudStation/WeddingPhotos"}' | sh /dev/stdin
+
+rsync -rav /Users/dblyon/modules/cpr/metaprot/sql/ /Volumes/Data/PostgreSQL
+rsync -rav --min-size=30M --remove-source-files /Users/dblyon/modules/cpr/metaprot/sql/ /Volumes/Data/PostgreSQL
+
+
+# find files with spaces in current directory
+find ./ -type f -maxdepth 1 | grep " "
+# find and delete all files with spaces
+find . -name '*\ *' -print0 | xargs -0 rm
+
+# rename all files from *.comet.pep.xml_prefix to *.comet.pep.xml
+for filename in *.comet.pep.xml_prefix; do 
+mv -- "$filename" "${filename%.comet.pep.xml_prefix}.comet.pep.xml"
+done
+
+### Count files in a directory by extension
+#https://unix.stackexchange.com/questions/146760/count-files-in-a-directory-by-extension
+ls | awk -F . '{print $NF}' | sort | uniq -c | awk '{print $2,$1}'
+
+

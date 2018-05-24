@@ -38,8 +38,7 @@ Thumbs.db
 
 # ipython notebook
 .idea/workspace.xml
-.idea
 
-# pytest
-.pytest_cache
 
+### 
+#git config --global core.excludesfile ~/.gitignore_global

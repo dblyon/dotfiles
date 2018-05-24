@@ -1,0 +1,23 @@
+echo '#!/bin/bash\numount /mnt/ome_home\numount /mnt/ome_projects' > ~/.sleep
+launchctl load ~/Library/LaunchAgents/de.bernhard-baehr.sleepwatcher-20compatibility-localuser.plist
+chmod +x ~/.sleep
+touch ~/.wakeup
+chmod +x ~/.wakeup
+brew services start sleepwatcher
+
+sudo mount -t afp afp://user:pass@idisk.mac.com/user /Volumes/idisk
+
+
+mount_afp afp://CoolCat.local/home /Volumes/home
+mount_afp afp://CoolCat.local/video /Volumes/video
+
+
+launchctl load ~/Library/LaunchAgents/de.bernhard-baehr.sleepwatcher-20compatibility-localuser.plist
+
+
+IDENTIFIER:
+^>(?:\w+)\|(.*?)\|.*?OS=(?:.*?)\s(?:\w+=.+?\s)*NCBI_TaxID=\d+
+DESCRIPTION:
+^>(?:\w+)\|(?:.*?)\|(.*)?OS=(?:.*?)\s(?:\w+=.+?\s)*NCBI_TaxID=(?:\d+)
+TAXONOMY:
+^>(?:\w+)\|(?:.*?)\|(?:.*)?OS=(?:.*?)\s(?:\w+=.+?\s)*NCBI_TaxID=(\d+)

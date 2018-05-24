@@ -11,13 +11,13 @@ export LANG=en_US.UTF-8
 # Activate ETE/Anaconda
 #unset PYTHONPATH; export PATH=~/anaconda_ete/bin:$PATH; export DYLD_FALLBACK_LIBRARY_PATH=~/anaconda_ete/lib
 ################################################################################
-alias ago="ssh dblyon@10.34.6.92" # this is the new red hat server # used to be david@ip address
-alias newgo="ssh dblyon@10.34.6.24" # old debian server
-alias cbs="ssh dblyon@login.cbs.dtu.dk"
-alias green="ssh dblyon@green.jensenlab.org"
-alias ome="ssh davily@computerome.cbs.dtu.dk"
-alias omemnth="sshfs davily@computerome.cbs.dtu.dk:/home/people/davily /mnt/home/ -o defer_permissions -o volname=home -o follow_symlinks"
-alias omemntp="sshfs davily@computerome.cbs.dtu.dk:/home/projects/cu_10029 /mnt/projects/ -o defer_permissions -o volname=projects -o follow_symlinks"
+# alias ago="ssh dblyon@10.34.6.92" # this is the new red hat server # used to be david@ip address
+# alias newgo="ssh dblyon@10.34.6.24" # old debian server
+# alias cbs="ssh dblyon@login.cbs.dtu.dk"
+# alias green="ssh dblyon@green.jensenlab.org"
+# alias ome="ssh davily@computerome.cbs.dtu.dk"
+#alias omemnth="sshfs davily@computerome.cbs.dtu.dk:/home/people/davily /mnt/home/ -o defer_permissions -o volname=home -o follow_symlinks"
+#alias omemntp="sshfs davily@computerome.cbs.dtu.dk:/home/projects/cu_10029 /mnt/projects/ -o defer_permissions -o volname=projects -o follow_symlinks"
 ##### mounting folders (http://wiki.bio.dtu.dk/computerome/index.php/Tips_and_Tricks)
 #sshfs davily@computerome.cbs.dtu.dk:/home/people/davily /mnt/ome_home/ -o defer_permissions -o volname=ome_home -o follow_symlinks
 #sshfs davily@computerome.cbs.dtu.dk:/home/projects/cu_10029 /mnt/ome_projects/ -o defer_permissions -o volname=ome_projects -o follow_symlinks
@@ -36,6 +36,18 @@ alias ....="cd ../../.."
 alias cdc='cd ~/CloudStation/CPR/'
 alias pwdcp='pwd | pbcopy && export dir=`pwd`'
 alias opena="open -a Atom"
+alias gimp="/Applications/GIMP.app/Contents/MacOS/GIMP"
+################################################################################
+### UZH / SIB
+alias atlas="ssh dblyon@imlslnx-atlas.uzh.ch"
+alias gaia="ssh dblyon@imlslnx-gaia.uzh.ch"
+### UZH mounting
+# /mnt/mnemo4/dblyon # home directory at UZH
+alias mounthome="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo4/dblyon /mnt/home/ -o defer_permissions -o volname=home -o follow_symlinks"
+alias umounthome="umount /mnt/home/"
+alias home="/mnt/home"
+alias mountfive="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon /mnt/mnemo5/dblyon -o defer_permissions -o volname=home -o follow_symlinks"
+alias umountfive="umount /mnt/mnemo5/dblyon"
 ################################################################################
 ################################################################################
 ### antigen from https://github.com/zsh-users/antigen
@@ -86,7 +98,7 @@ BULLETTRAIN_TIME_FG="default"
 
 BULLETTRAIN_CONTEXT_BG="blue"
 BULLETTRAIN_CONTEXT_FG="default"
-BULLETTRAIN_CONTEXT_DEFAULT_USER="dblyon"
+# BULLETTRAIN_CONTEXT_DEFAULT_USER="dblyon"
 
 BULLETTRAIN_DIR_BG="cyan"
 BULLETTRAIN_DIR_FG="white"

@@ -1,0 +1,167 @@
+# ssh connection to CoolCat locally
+ssh port 22222 --> 22
+ssh -p 22222 dblyon@192.168.1.100 --> fix git permissions #!!!
+ssh -p 22222 root@192.168.1.100
+ssh -p 22222 root@lyonthelion.farted.net
+ssh -p 22222 root@80.71.135.97
+ssh -p 22222 root@lyonthelion.quickconnect.to
+cd /volume1/homes/dblyon
+
+# IP at CPR 
+192.38.117.2
+
+# BTSync:
+change permissions on CoolCat
+Putty to Coolcat as root
+chmod -R 777 /volume1/homes/dblyon/BTS_Papers/
+etc.
+
+5. in Ubuntu change owner
+sudo chown -R dblyon:dblyon /home/dblyon/BTSync
+
+#####
+# Steve's Pentagon
+ssh -p 22222 dblyon@oida.violates.me
+--> passwd
+scp -P 22222 -r dblyon@oida.violates.me:/home/dblyon/comics ~/Downloads
+scp -P 22222 -r dblyon@oida.violates.me:/home/dblyon/python ~/Downloads
+
+# im home verzeichnis
+cd .ssh
+authorized_keys public_key reinkopieren
+
+This is a quick how to on removing all of you _conflict files all at once
+
+On the OwnCloud server open up a terminal
+
+Type:
+sudo bash
+
+Enter your password
+
+Type
+cd /
+
+Type
+find ./* -name *_conflict*
+this will list all of the files
+
+find ./* -name *_conflict* -delete
+this will delete all of the files
+
+Thats it!
+
+##########################################################################################
+# ownCloud
+# Webdav 
+https://lyonthelion.farted.net/owncloud/remote.php/webdav
+
+# owncloud upgrade
+Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:
+...
+...
+
+# didn't work
+chown -R www-data:www-data /var/www/owncloud/*
+chown -R www-data:www-data /volume1/web/owncloud/*
+
+# worked
+chmod 750 /volume1/web/owncloud/data
+chmod 750 -R /volume1/web/owncloud/config
+chown -R http:http /volume1/web/owncloud/
+# owncloud on coolcat said to change user rights 
+0770
+
+##########################################################################################
+#static ip 
+80.109.76.91 previously
+80.110.82.92 as of 20140905
+80.110.82.92
+80.110.110.197 as of 20141016
+80.110.104.138 as of 20141024
+80.110.99.11 as of 20141108
+
+Denmark / Copenhagen
+Oehlenschlaegersgade
+89.23.226.234
+Dalgas Have
+80.71.135.97
+80.71.135.97
+80.71.135.97
+WAN IP: 10.120.97.250
+
+
+
+https://80.110.82.92/owncloud
+
+https://80.110.82.92:443/owncloud
+
+ssh root@lyonthelion.farted.net
+ssh root@80.71.135.97
+lyonthelion.farted.net
+lyonthelion.verymad.net
+
+#ssh tunnel -Llocalport:dortigerport
+ssh -p 10022 root@lyonthelion.farted.net -L5000:localhost:5000
+
+
+
+von draussen nach hause tunneln:
+terminal
+ssh -p 10022 root@lyonthelion.farted.net -L5000:localhost:5000 -L1025:localhost:80
+ssh -p 10022 root@80.71.135.97 -L5000:localhost:5000 -L1025:localhost:80
+chrome
+http://localhost:1025/phpMyAdmin/
+mehrere Ports, bei OSX muss local port groesser als 1024 sein:
+ssh -p 10022 root@lyonthelion.farted.net -L5000:localhost:5000 -L1025:localhost:80 -L1026:localhost:443
+
+
+https://lyonthelion.farted.net:1026/owncloud/remote.php/webdav/
+
+https://lyonthelion.farted.net:443/owncloud
+https://lyonthelion.farted.net/owncloud
+
+access von draussen:
+https://lyonthelion.farted.net:5001
+https://lyonthelion.farted.net/owncloud
+
+auf server public key von ares eintragen
+
+# Synology restart SSH
+synoservicectl --restart sshd
+
+# http://blog.osdev.org/git/2014/02/13/using-git-on-a-synology-nas.html
+cd /volume1/homes/dblyon/
+chown -R dblyon:users .ssh
+chmod 700 .ssh
+chmod 644 .ssh/authorized_keys
+or ???
+chmod 600 .ssh/authorized_keys
+
+#The Synology SSH daemon doesn't use key based auth by default. 
+#To enable it use vi to edit the /etc/ssh/sshd_config file. Find the following lines:
+
+#PubkeyAuthentication yes
+#AuthorizedKeysFile     .ssh/authorized_keys
+##Modify them to be:
+PubkeyAuthentication yes
+AuthorizedKeysFile     .ssh/authorized_keys
+
+
+
+
+ssh-copy-id -i ~/.ssh/id_rsa.pub jdoe@somehost.org
+
+UNIX / BASH COMMANDS:
+# list sort in reverse alphabetical order
+ls -1 | sort -r
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+Original:
+
+Chemic: down
+(?<=[(Na)|(Cl)|(H)|(C)|(O)|(S)|(N)])\d{1,3}(?=[(Na)|(Cl)|(H)|(C)|(O)|(S)|(N)|( )|(\()])
+ 
+Chemic: up
+\(\d*(\-|\+)\)
+ 
+Chemic: down
+\((aq|g|l|s)\)
+
+
+Modified for 15N and 14N
+Chemic: down
+(?>=[(N)])(14 | 15) (?=[(N)|( )|(\()])
+ 
+(14 | 15)(N)
+ 
+ 
+ 
+ 
+Chemic: up
+(?>=[(N)])\d{2}(?=[( )])
+
+
+
+\d{1,2}(?<=[(N)])(?=[( )|(\()])
+|

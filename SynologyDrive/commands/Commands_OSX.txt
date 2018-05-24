@@ -1,0 +1,22 @@
+# SYMLINK after brew install
+# brew install qcachegrind
+# brew info qcachegrind
+/usr/local/Cellar/qcachegrind/0.7.4 # output
+/usr/local/Cellar/qcachegrind/0.7.4/qcachegrind.app/Contents/MacOS # executable is here
+# create Symlink qchachegrind
+sudo ls -sv /usr/local/Cellar/qcachegrind/0.7.4/qcachegrind.app/Contents/MacOS /usr/local/bin
+
+########## iterm2 and zshell
+# make zshell the default shell
+chsh -s /bin/zsh
+exec /bin/zsh -l # add to ~/.bash_profile
+
+########## Xcode
+xcode-select --install
+xcode-select -p
+gcc --version
+
+
+########## pass
+gpg --list-keys
+http://unix.stackexchange.com/questions/53912/i-try-to-add-passwords-to-the-pass-password-manager-but-my-attempts-fail-with

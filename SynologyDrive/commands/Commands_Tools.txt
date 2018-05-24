@@ -1,0 +1,10 @@
+# Emboss Six-Frame-Translation 6ft
+modify C:\mEMBOSS\runjemboss.bat
+    to the following
+"""
+cd C:\mEMBOSS\jemboss\jar
+java -Xmx12000m -jar Jemboss-MS.jar local
+"""
+--> ca. 12 GB Ram
+
+then start C:\mEMBOSS\runjemboss.bat
