@@ -5,6 +5,8 @@ import matplotlib
 %matplotlib inline
 import matplotlib.pyplot as plt
 matplotlib.style.use('ggplot')
+from matplotlib import rcParams
+rcParams.update({'figure.autolayout': True})
 import seaborn as sns
 sns.set(color_codes=True)
 #pd.set_option('display.float_format', tools.format_e)
