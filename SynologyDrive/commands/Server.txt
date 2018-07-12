@@ -331,3 +331,11 @@ find *.sh.e* -type f -size -10c
 
 
 rsync -av dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon/computerome/davily/apps/Crux_params_DBL.txt ~/Downloads/
+
+sshfs davily@computerome.cbs.dtu.dk:/home/people/davily /mnt/ome_home/ -o defer_permissions -o volname=ome_home -o follow_symlinks
+sshfs dblyon@@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon /mnt/mnemo5/dblyon/ -o defer_permissions -o volname=ome_projects -o follow_symlinks
+umount /mnt/ome_home
+umount /mnt/ome_projects
+rsync -av dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon/Speedy/FASTA/HUMAN20150706.fasta ~/Downloads/
+rsync -av dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon/computerome/davily/data/MLN_Ribosylation/HUMAN.fasta ~/Downloads/
+rsync -av dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon/Speedy/ACCpro_HOMD/all_chunks_sorted_reconstructed.acc ~/Downloads/

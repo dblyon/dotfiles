@@ -29,6 +29,7 @@ alias modules="cd /Users/dblyon/modules/cpr"
 alias commands="cd ~/SynologyDrive/commands/"
 alias fdr="cd /Users/dblyon/modules/cpr/fdriter"
 alias ll='ls -lhtr'
+alias lr='ls -lhtr' # oh my zshell or something else is overwriting 'll' alias
 alias ld="ls -ld */"  # List in long format, only directories
 alias ..="cd .."
 alias ...="cd ../.."
@@ -51,21 +52,21 @@ alias umountfive="umount /mnt/mnemo5/dblyon"
 ################################################################################
 ################################################################################
 ### antigen from https://github.com/zsh-users/antigen
-source /usr/local/share/antigen/antigen.zsh
+#source /usr/local/share/antigen/antigen.zsh
 # Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+#antigen use oh-my-zsh
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle pip
-antigen bundle command-not-found
-antigen bundle compleat
+#antigen bundle git
+#antigen bundle pip
+#antigen bundle command-not-found
+#antigen bundle compleat
 # Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
+#antigen bundle zsh-users/zsh-syntax-highlighting
 # Load the theme.
-antigen bundle tarruda/zsh-autosuggestions
-antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+#antigen bundle tarruda/zsh-autosuggestions
+#antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
 # Tell Antigen that you're done.
-antigen apply
+#antigen apply
 ################################################################################
 
 ################################################################################

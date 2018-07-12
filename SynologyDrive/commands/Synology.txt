@@ -1,0 +1,1 @@
+mount -t afp afp://dblyon@CoolCat.local/home /mnt/CoolCat
