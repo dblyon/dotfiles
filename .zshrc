@@ -29,6 +29,8 @@ alias modules="cd /Users/dblyon/modules/cpr"
 alias commands="cd ~/SynologyDrive/commands/"
 alias cheat="cd /Users/dblyon/SynologyDrive/CheatSheets"
 alias fdr="cd /Users/dblyon/modules/cpr/fdriter"
+alias ago="cd ~/modules/cpr/agotool"
+
 alias ll='ls -lhtr'
 alias lr='ls -lhtr' # oh my zshell or something else is overwriting 'll' alias
 alias ld="ls -ld */"  # List in long format, only directories
