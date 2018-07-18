@@ -23,10 +23,11 @@ export LANG=en_US.UTF-8
 #sshfs davily@computerome.cbs.dtu.dk:/home/projects/cu_10029 /mnt/ome_projects/ -o defer_permissions -o volname=ome_projects -o follow_symlinks
 #umount /mnt/ome_home
 #umount /mnt/ome_projects
-alias ø="say røll grøll mell fløll"
-alias meta="cd /Users/dblyon/modules/cpr/metaprot"
+#alias ø="say røll grøll mell fløll"
+#alias meta="cd /Users/dblyon/modules/cpr/metaprot"
 alias modules="cd /Users/dblyon/modules/cpr"
 alias commands="cd ~/SynologyDrive/commands/"
+alias cheat="cd /Users/dblyon/SynologyDrive/CheatSheets"
 alias fdr="cd /Users/dblyon/modules/cpr/fdriter"
 alias ll='ls -lhtr'
 alias lr='ls -lhtr' # oh my zshell or something else is overwriting 'll' alias
@@ -42,6 +43,7 @@ alias gimp="/Applications/GIMP.app/Contents/MacOS/GIMP"
 ### UZH / SIB
 alias atlas="ssh dblyon@imlslnx-atlas.uzh.ch"
 alias gaia="ssh dblyon@imlslnx-gaia.uzh.ch"
+alias sagi="ssh dblyon@imlslnx-sagittarius.uzh.ch"
 ### UZH mounting
 # /mnt/mnemo4/dblyon # home directory at UZH
 alias mounthome="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo4/dblyon /mnt/home/ -o defer_permissions -o volname=home -o follow_symlinks"
