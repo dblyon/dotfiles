@@ -12,17 +12,17 @@ from distutils.core import setup
 from Cython.Build import cythonize
 
 setup(
-    name = "Hello", 
+    name = "Hello",
     ext_modules = cythonize("hello.pyx"),
     )
-        
+
 3. Compile the file
 python setup.py build_ext --inplace -c mingw64
 
 Zeus
 python setup.py build_ext --inplace
 
-4. Use *.pyd file (Win7) 
+4. Use *.pyd file (Win7)
 
 ###############################################################################
 ##### Profiling Python Code
@@ -34,7 +34,7 @@ python -m cProfile -s cumulative myscript.py > outputfile.txt
 import cProfile
 p = cProfile.Profile(timeunit = 0.00001)
 stat = p.run("python statement") #stat = p.run("run_experimentfile.runcamelcropper()")
-# alles was in if __name__ == "__main__" --> in function und die dann über python statement aufrufen.
+# alles was in if __name__ == "__main__" --> in function und die dann ï¿½ber python statement aufrufen.
 stat.getstats()
 
 
@@ -62,3 +62,10 @@ fn2=r"C:\Users\dblyon\BTSync\PD_Shoots_20130513fasta\res\CCInput_shoots_ALL_tech
 df2= pd.read_csv(fn2, sep="\t")
 from pandas.util.testing import assert_frame_equal
 assert_frame_equal(df1, df2)
+
+
+### compilation problems on native python / anaconda python using
+python setup.py build_ext --inplace
+# solution
+https://stackoverflow.com/questions/52509602/cant-compile-c-program-on-a-mac-after-upgrade-to-mojave
+open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg

@@ -2,8 +2,8 @@
 source ~/.profile
 ###############################################################################
 # David Lyon personal settings
-export PATH=/Users/dblyon/anaconda3/bin:/usr/local/bin:/Users/dblyon/.rvm/gems/ruby-2.4.0/bin:/usr/local:/usr/local/Cellar:/Users/dblyon/bin:/Users/dblyon/install/bin:/Users/dblyon/install:/Users/dblyon/install/crux-3.1.Darwin.i386/bin:/Users/dblyon/install/qcachegrind/qcachegrind.app/Contents/MacOS:/Users/dblyon/scripts:$PATH
-export PYTHONPATH=$PYTHONPATH:/Users/dblyon/modules/metaprot:/Users/dblyon/modules/cpr/metaprot/sql:/Users/dblyon/miniconda3:/Users/dblyon/Downloads/introduction_to_ml_with_python
+export PATH=/Library/Developer/CommandLineTools/usr/bin/:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1:/Users/dblyon/anaconda3/bin:/usr/local/bin:/usr/local/bin:/sers/dblyon/.rvm/gems/ruby-2.4.0/bin:/usr/local:usr/local/Cellar:/Users/dblyon/bin:/Users/dblyon/install/bin:/Users/dblyon/install:/Users/dblyon/install/crux-3.1.Darwin.i386/bin:/Users/dblyon/install/qcachegrind/qcachegrind.app/Contents/MacOS:/Users/dblyon/scripts:$PATH
+#export PYTHONPATH=$PYTHONPATH:/Users/dblyon/anaconda3/envs/py35/bin/clang
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 ## use Python 2.7 as the default
@@ -13,26 +13,28 @@ export LANG=en_US.UTF-8
 ################################################################################
 # alias ago="ssh dblyon@10.34.6.92" # this is the new red hat server # used to be david@ip address
 # alias newgo="ssh dblyon@10.34.6.24" # old debian server
+# rebeca email 192.38.117.182
+alias temp_agoku="ssh dblyon@192.38.117.182"
+alias agoku="ssh david@agotool.sund.root.ku.dk"
+alias san="ssh dblyon@san.embl.de"
+alias bio="cd ~/modules/uzh/bio134"
 # alias cbs="ssh dblyon@login.cbs.dtu.dk"
 # alias green="ssh dblyon@green.jensenlab.org"
-# alias ome="ssh davily@computerome.cbs.dtu.dk"
-#alias omemnth="sshfs davily@computerome.cbs.dtu.dk:/home/people/davily /mnt/home/ -o defer_permissions -o volname=home -o follow_symlinks"
-#alias omemntp="sshfs davily@computerome.cbs.dtu.dk:/home/projects/cu_10029 /mnt/projects/ -o defer_permissions -o volname=projects -o follow_symlinks"
-##### mounting folders (http://wiki.bio.dtu.dk/computerome/index.php/Tips_and_Tricks)
-#sshfs davily@computerome.cbs.dtu.dk:/home/people/davily /mnt/ome_home/ -o defer_permissions -o volname=ome_home -o follow_symlinks
-#sshfs davily@computerome.cbs.dtu.dk:/home/projects/cu_10029 /mnt/ome_projects/ -o defer_permissions -o volname=ome_projects -o follow_symlinks
 #umount /mnt/ome_home
 #umount /mnt/ome_projects
-#alias ø="say røll grøll mell fløll"
 #alias meta="cd /Users/dblyon/modules/cpr/metaprot"
-alias modules="cd /Users/dblyon/modules/cpr"
+alias modules="cd /Users/dblyon/modules"
 alias commands="cd ~/SynologyDrive/commands/"
 alias cheat="cd /Users/dblyon/SynologyDrive/CheatSheets"
 alias fdr="cd /Users/dblyon/modules/cpr/fdriter"
 alias ago="cd ~/modules/cpr/agotool"
-
+alias aquarius="ssh -p 22 dblyon@aquarius.meringlab.org"
+alias syncago="rsync -rtuva dblyon@imlslnx-atlas.uzh.ch://home/dblyon/agotool/ /Users/dblyon/modules/cpr/agotool/ && rsync -rtuva /Users/dblyon/modules/cpr/agotool/ dblyon@imlslnx-atlas.uzh.ch://home/dblyon/agotool/"
+alias dc="docker-compose"
 alias ll='ls -lhtr'
+alias lt='ls -lhtr' # oh my zshell or something else is overwriting 'll' alias
 alias lr='ls -lhtr' # oh my zshell or something else is overwriting 'll' alias
+alias lls='ls -lhSr'
 alias ld="ls -ld */"  # List in long format, only directories
 alias ..="cd .."
 alias ...="cd ../.."
@@ -41,18 +43,26 @@ alias cdc='cd ~/SynologyDrive/CPR/'
 alias pwdcp='pwd | pbcopy && export dir=`pwd`'
 alias opena="open -a Atom"
 alias gimp="/Applications/GIMP.app/Contents/MacOS/GIMP"
+alias snakels="snakemake -l | tr '\n' ' '" 
+alias pc="python setup.py build_ext --inplace -f"
 ################################################################################
 ### UZH / SIB
 alias atlas="ssh dblyon@imlslnx-atlas.uzh.ch"
 alias gaia="ssh dblyon@imlslnx-gaia.uzh.ch"
-alias sagi="ssh dblyon@imlslnx-sagittarius.uzh.ch"
+alias sagi="ssh dblyon2@imlslnx-sagittarius.uzh.ch"
 ### UZH mounting
 # /mnt/mnemo4/dblyon # home directory at UZH
-alias mounthome="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo4/dblyon /mnt/home/ -o defer_permissions -o volname=home -o follow_symlinks"
-alias umounthome="umount /mnt/home/"
+alias mounthome="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo4/dblyon /Volumes/mnt/home/ -o defer_permissions -o volname=home -o follow_symlinks"
+alias umounthome="umount /Volumes/mnt/home/"
 alias home="/mnt/home"
-alias mountfive="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon /mnt/mnemo5/dblyon -o defer_permissions -o volname=home -o follow_symlinks"
-alias umountfive="umount /mnt/mnemo5/dblyon"
+alias mountfive="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon /Volumes/mnt/mnemo5/dblyon -o defer_permissions -o volname=home -o follow_symlinks"
+alias umountfive="umount /Volumes/mnt/mnemo5/dblyon"
+alias mnt5="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon/ /Volumes/mnt/mnemo5/dblyon/ -o defer_permissions -o volname=mnemo5 -o follow_symlinks"
+alias umnt5="umount /Volumes/mnt/mnemo5/dblyon"
+### Snakemake autocompletion
+# compdef _gnu_generic snakemake
+### zsh match case insensitve patterns with ls
+unsetopt CASE_GLOB
 ################################################################################
 ################################################################################
 ### antigen from https://github.com/zsh-users/antigen
@@ -72,13 +82,11 @@ alias umountfive="umount /mnt/mnemo5/dblyon"
 # Tell Antigen that you're done.
 #antigen apply
 ################################################################################
-
 ################################################################################
 ### https://github.com/caiogondim/bullet-train.zsh
 ### Powerline and Oh my zsh settings
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/dblyon/.oh-my-zsh
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -104,6 +112,7 @@ BULLETTRAIN_TIME_FG="default"
 BULLETTRAIN_CONTEXT_BG="blue"
 BULLETTRAIN_CONTEXT_FG="default"
 # BULLETTRAIN_CONTEXT_DEFAULT_USER="dblyon"
+BULLETTRAIN_CONTEXT_HOSTNAME="ody"
 
 BULLETTRAIN_DIR_BG="cyan"
 BULLETTRAIN_DIR_FG="white"
@@ -281,3 +290,20 @@ export PATH="/usr/local/opt/qt/bin:$PATH"
 ########################################################################################################################
 ### from https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/ for dotfiles on github
 alias config='/usr/local/bin/git --git-dir=/Users/dblyon/.cfg/ --work-tree=/Users/dblyon'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/dblyon/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/dblyon/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/dblyon/anaconda3/etc/profile.d/conda.sh"
+    else
+        #export PATH="/Users/dblyon/anaconda3/bin:$PATH"
+        export PATH="$PATH:/Users/dblyon/anaconda3/bin"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

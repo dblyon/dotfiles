@@ -284,29 +284,6 @@ SELECT nspname || '.' || relname AS "relation",
           LIMIT 20;
 
 
-###### newest version including indexes
-
-   name    | owner  |  size
------------+--------+---------
- fdriter   | dblyon | 58 GB
- postgres  | dblyon | 7151 kB
- template1 | dblyon | 7041 kB
- template0 | dblyon | 7041 kB
- test      | dblyon | 7041 kB
-(5 rows)
-
-                      relation                       | total_size
------------------------------------------------------+------------
- public.proteinsetenum_2_taxidlca_2_proteinenumarray | 33 GB
- public.peptidehash_2_proteinsetenum                 | 23 GB
- public.child_2_parent                               | 1618 MB
- public.proteinenum_2_an_2_taxid                     | 297 MB
- public.taxa                                         | 202 MB
- public.taxid_2_rank                                 | 104 MB
- public.taxid_merged                                 | 2744 kB
-(7 rows)
-
-
 ##########################################################################################
 CREATE DATABASE fdriter;
 
@@ -334,122 +311,27 @@ CREATE INDEX proteinsetenum_2_taxidlca_2_proteinenumarray_proteinsetenum_idx ON 
 CREATE INDEX proteinenum_2_an_2_taxid_proteinenum_idx ON proteinenum_2_an_2_taxid(proteinenum);
 
 
-##### aGOtool before
-               relation                | total_size
----------------------------------------+------------
- public.protein_2_function             | 71 GB
- public.protein_2_og                   | 328 MB
- public.og_2_function                  | 172 MB
- public.ontologies                     | 74 MB
- public.protein_secondary_2_primary_an | 34 MB
- public.function_2_definition          | 13 MB
- public.ogs                            | 9664 kB
- public.functions                      | 6384 kB
- public.go_2_slim                      | 32 kB
-(9 rows)
-
-##### aGOtool after
-               relation                | total_size
----------------------------------------+------------
- public.protein_2_function             | 16 GB
- public.protein_2_og                   | 328 MB
- public.og_2_function                  | 172 MB
- public.ontologies                     | 33 MB --> no index
- public.protein_secondary_2_primary_an | 22 MB
- public.functions                      | 14 MB
- public.ogs                            | 9664 kB
- public.go_2_slim                      | 16 kB
-(8 rows)
-
-
-    name     | owner  |  size
--------------+--------+---------
- fdriter     | dblyon | 58 GB
- agotool     | dblyon | 17 GB
- agtool_test | dblyon | 544 MB
- postgres    | dblyon | 7151 kB
- test        | dblyon | 7041 kB
- template0   | dblyon | 7041 kB
- metaprot    | dblyon | 7041 kB
- template1   | dblyon | 7041 kB
-(8 rows)
-
-
 LC_ALL=C sort --parallel 2 -T /localstorage/temp /var/www/agotool/static/data/PostgreSQL/tables/Protein_2_Function_table_temp.txt -o /var/www/agotool/static/data/PostgreSQL/tables/Protein_2_Function_table_temp.txt
 
 fn_in = r"/var/www/agotool/static/data/PostgreSQL/tables/Protein_2_Function_table_temp.txt"
 fn_out = r"/var/www/agotool/static/data/PostgreSQL/tables/Protein_2_Function_table.txt"
 long_2_wide_format(fn_in, fn_out)
 
-# old state of agotool DB on modify
-relation                | total_size
----------------------------------------+------------
-public.protein_2_function             | 16 GB
-public.protein_2_og                   | 328 MB
-public.og_2_function                  | 172 MB
-public.ontologies                     | 33 MB
-public.protein_secondary_2_primary_an | 22 MB
-public.functions                      | 14 MB
-public.ogs                            | 9664 kB
-public.go_2_slim                      | 16 kB
 
-# current state of agotool DB on modify, 20180205
-relation                | total_size
----------------------------------------+------------
-public.protein_2_function             | 20 GB
-public.ogs                            | 211 MB
-public.protein_secondary_2_primary_an | 205 MB
-public.protein_2_og                   | 35 MB
-public.ontologies                     | 33 MB
-public.functions                      | 27 MB
-public.og_2_function                  | 9664 kB
-public.go_2_slim                      | 48 kB
+######## 20190614
+rm -rf /usr/local/var/postgres
+rm -rf /usr/local/var/postgresql@9.6
+brew reinstall postgresql
+psql -d postgres
+CREATE DATABASE agotool;
+CREATE TABLE protein_secondary_2_primary_an (
+    taxid integer,
+    sec text,
+    prim text);
 
-# current state of agotool DB on modify, 20180205 newest
-relation                | total_size
----------------------------------------+------------
-public.protein_2_function             | 20 GB
-public.protein_secondary_2_primary_an | 205 MB
-public.ogs                            | 172 MB
-public.protein_2_og                   | 35 MB
-public.ontologies                     | 33 MB
-public.functions                      | 14 MB
-public.og_2_function                  | 9664 kB
-public.go_2_slim                      | 16 kB
-(8 rows)
-
-# on docker
-relation                | total_size
----------------------------------------+------------
-public.protein_2_function             | 20 GB
-public.protein_secondary_2_primary_an | 205 MB
-public.ogs                            | 172 MB
-public.protein_2_og                   | 35 MB
-public.ontologies                     | 33 MB
-public.functions                      | 14 MB
-public.og_2_function                  | 9664 kB
-public.go_2_slim                      | 16 kB
-
-# on docker, 20180205
-relation                | total_size
----------------------------------------+------------
-public.protein_2_function             | 20 GB
-public.protein_secondary_2_primary_an | 205 MB
-public.ogs                            | 172 MB
-public.protein_2_og                   | 35 MB
-public.ontologies                     | 33 MB
-public.functions                      | 14 MB
-public.og_2_function                  | 9664 kB
-public.go_2_slim                      | 16 kB
-
-
-relation                | total_size
----------------------------------------+------------
-public.protein_2_function             | 21 GB
-public.protein_secondary_2_primary_an | 205 MB
-public.ogs                            | 172 MB
-public.protein_2_og                   | 35 MB
-public.ontologies                     | 33 MB
-public.functions                      | 14 MB
-public.og_2_function                  | 9664 kB
-public.go_2_slim                      | 16 kB
+$ psql -d agotool -f data/PostgreSQL/copy_from_file_and_index.psql
+# rename uniprotid --> id
+copy protein_secondary_2_primary_an FROM '/agotool_data/data/PostgreSQL/tables/Secondary_2_Primary_IDs_UPS_FIN_for_DB_sorted.txt';
+CREATE INDEX protein_secondary_2_primary_an_sec_idx ON protein_secondary_2_primary_an (sec);
+CREATE INDEX protein_secondary_2_primary_an_taxid_idx ON protein_secondary_2_primary_an (taxid);
+CLUSTER protein_secondary_2_primary_an USING protein_secondary_2_primary_an_taxid_idx;
