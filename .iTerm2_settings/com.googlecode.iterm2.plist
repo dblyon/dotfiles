@@ -1879,7 +1879,7 @@
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
-	<false/>
+	<true/>
 	<key>HighlightTabLabels</key>
 	<false/>
 	<key>HotKeyBookmark</key>
@@ -1973,7 +1973,7 @@
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>-920 747 400 129 -1440 186 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>2930 191 700 622 2560 0 1440 877 </string>
+	<string>2930 731 700 622 2560 540 1440 877 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>-1171 593 606 469 -1440 186 1440 878 </string>
 	<key>NSWindow Frame SharedPreferences</key>
@@ -2159,9 +2159,9 @@
 				<key>Blue Component</key>
 				<real>0.0</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.1491314172744751</real>
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
@@ -2208,11 +2208,11 @@
 				<key>Blue Component</key>
 				<real>1</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.91000000000000003</real>
+				<real>0.9268307089805603</real>
 				<key>Red Component</key>
-				<real>0.65000000000000002</real>
+				<real>0.70213186740875244</real>
 			</dict>
 			<key>Cursor Text Color</key>
 			<dict>
@@ -2236,6 +2236,8 @@
 			<key>Disable Smcup Rmcup</key>
 			<false/>
 			<key>Disable Window Resizing</key>
+			<true/>
+			<key>Draw Powerline Glyphs</key>
 			<true/>
 			<key>Flashing Bell</key>
 			<false/>
@@ -2686,13 +2688,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.67800000000000005</real>
+				<real>0.73423302173614502</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.27000000000000002</real>
+				<real>0.35916060209274292</real>
 				<key>Red Component</key>
-				<real>0.023</real>
+				<real>0.0</real>
 			</dict>
 			<key>Log Directory</key>
 			<string></string>
@@ -2887,9 +2889,9 @@
 		<string>3.3.4beta1</string>
 		<string>3.3.1beta1</string>
 		<string>3.3.5beta3</string>
-		<string>3.3.0beta11</string>
-		<string>3.3.0beta5</string>
 		<string>3.3.7beta1</string>
+		<string>3.3.0beta5</string>
+		<string>3.3.0beta11</string>
 	</array>
 	<key>NoSyncDisablePromotions</key>
 	<true/>
@@ -2905,7 +2907,7 @@
 		<key>screenFrame</key>
 		<string>{{2560, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{2958, 710}</string>
+		<string>{2829, 595}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -2918,7 +2920,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>83B8B691-A18B-4407-AF7C-FE5B3C14520D</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>35</integer>
+	<integer>36</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3755,9 +3757,9 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-10-30T13:56:40Z</date>
+	<date>2019-11-19T11:59:51Z</date>
 	<key>SUSkippedVersion</key>
-	<string>3.3.7beta2</string>
+	<string>3.3.7beta4</string>
 	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3765,7 +3767,7 @@
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowNewOutputIndicator</key>
-	<false/>
+	<true/>
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SmartPlacement</key>

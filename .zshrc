@@ -18,6 +18,7 @@ alias temp_agoku="ssh dblyon@192.38.117.182"
 alias agoku="ssh david@agotool.sund.root.ku.dk"
 alias san="ssh dblyon@san.embl.de"
 alias bio="cd ~/modules/uzh/bio134"
+alias pisces="ssh dblyon@pisces.meringlab.org"
 # alias cbs="ssh dblyon@login.cbs.dtu.dk"
 # alias green="ssh dblyon@green.jensenlab.org"
 #umount /mnt/ome_home
@@ -40,7 +41,8 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias cdc='cd ~/SynologyDrive/CPR/'
-alias pwdcp='pwd | pbcopy && export dir=`pwd`'
+alias pwdcp2='pwd | pbcopy && export dir=`pwd`'
+alias pwdcp="pwd | tr -d '\n' | pbcopy"
 alias opena="open -a Atom"
 alias gimp="/Applications/GIMP.app/Contents/MacOS/GIMP"
 alias snakels="snakemake -l | tr '\n' ' '" 
