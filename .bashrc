@@ -115,7 +115,7 @@ fi
 ################################### below DBL stuff
 export PATH="/usr/local/bin:/mnt/mnemo5/dblyon/install/anaconda3/bin:/mnt/mnemo4/dblyon/scripts:$PATH"
 ### Aliases
-alias ll='ls -alF'
+alias ll='ls -ahlF'
 alias lt='ls -lhtr' # oh my zshell or something else is overwriting 'll' alias
 alias lr='ls -lhtr' # oh my zshell or something else is overwriting 'll' alias
 alias lls='ls -lhSr'
@@ -173,7 +173,6 @@ export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-
 export COLOR_NC='\e[0m' # No Color
 export COLOR_WHITE='\e[1;37m'
 export COLOR_BLACK='\e[0;30m'

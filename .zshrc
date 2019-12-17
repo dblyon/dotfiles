@@ -6,24 +6,12 @@ export PATH=/Library/Developer/CommandLineTools/usr/bin/:/Applications/Xcode.app
 #export PYTHONPATH=$PYTHONPATH:/Users/dblyon/anaconda3/envs/py35/bin/clang
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-## use Python 2.7 as the default
-#source activate python2
-# Activate ETE/Anaconda
-#unset PYTHONPATH; export PATH=~/anaconda_ete/bin:$PATH; export DYLD_FALLBACK_LIBRARY_PATH=~/anaconda_ete/lib
 ################################################################################
-# alias ago="ssh dblyon@10.34.6.92" # this is the new red hat server # used to be david@ip address
-# alias newgo="ssh dblyon@10.34.6.24" # old debian server
-# rebeca email 192.38.117.182
 alias temp_agoku="ssh dblyon@192.38.117.182"
 alias agoku="ssh david@agotool.sund.root.ku.dk"
 alias san="ssh dblyon@san.embl.de"
 alias bio="cd ~/modules/uzh/bio134"
 alias pisces="ssh dblyon@pisces.meringlab.org"
-# alias cbs="ssh dblyon@login.cbs.dtu.dk"
-# alias green="ssh dblyon@green.jensenlab.org"
-#umount /mnt/ome_home
-#umount /mnt/ome_projects
-#alias meta="cd /Users/dblyon/modules/cpr/metaprot"
 alias modules="cd /Users/dblyon/modules"
 alias commands="cd ~/SynologyDrive/commands/"
 alias cheat="cd /Users/dblyon/SynologyDrive/CheatSheets"
@@ -45,7 +33,7 @@ alias pwdcp2='pwd | pbcopy && export dir=`pwd`'
 alias pwdcp="pwd | tr -d '\n' | pbcopy"
 alias opena="open -a Atom"
 alias gimp="/Applications/GIMP.app/Contents/MacOS/GIMP"
-alias snakels="snakemake -l | tr '\n' ' '" 
+alias snakels="snakemake -l | tr '\n' ' '"
 alias pc="python setup.py build_ext --inplace -f"
 ################################################################################
 ### UZH / SIB
@@ -67,63 +55,41 @@ alias umnt5="umount /Volumes/mnt/mnemo5/dblyon"
 unsetopt CASE_GLOB
 ################################################################################
 ################################################################################
-### antigen from https://github.com/zsh-users/antigen
-#source /usr/local/share/antigen/antigen.zsh
-# Load the oh-my-zsh's library.
-#antigen use oh-my-zsh
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-#antigen bundle git
-#antigen bundle pip
-#antigen bundle command-not-found
-#antigen bundle compleat
-# Syntax highlighting bundle.
-#antigen bundle zsh-users/zsh-syntax-highlighting
-# Load the theme.
-#antigen bundle tarruda/zsh-autosuggestions
-#antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
-# Tell Antigen that you're done.
-#antigen apply
-################################################################################
-################################################################################
 ### https://github.com/caiogondim/bullet-train.zsh
 ### Powerline and Oh my zsh settings
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/dblyon/.oh-my-zsh
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bullet-train" #"powerlevel9k/powerlevel9k" # "agnoster" #"bullet-train"
-
-plugins=(
-  git
-  docker
-  python
-  osx
-)
-
-BULLETTRAIN_PROMPT_ORDER=(
-  time
-  context
-  dir
-  git
-)
-
-BULLETTRAIN_TIME_BG="yellow"
-BULLETTRAIN_TIME_FG="default"
-
-BULLETTRAIN_CONTEXT_BG="blue"
-BULLETTRAIN_CONTEXT_FG="default"
-# BULLETTRAIN_CONTEXT_DEFAULT_USER="dblyon"
-BULLETTRAIN_CONTEXT_HOSTNAME="ody"
-
-BULLETTRAIN_DIR_BG="cyan"
-BULLETTRAIN_DIR_FG="white"
-
-BULLETTRAIN_GIT_BG="black"
-BULLETTRAIN_GIT_FG="default"
-
-source $ZSH/oh-my-zsh.sh
-
+# # Path to your oh-my-zsh installation.
+# export ZSH=~/.oh-my-zsh
+# # Set name of the theme to load. Optionally, if you set this to "random"
+# # it'll load a random theme each time that oh-my-zsh is loaded.
+# # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# ZSH_THEME="bullet-train" #"powerlevel9k/powerlevel9k" # "agnoster" #"bullet-train"
+#
+# plugins=(
+#   #git
+#   #docker
+#   #python
+#   #osx
+# )
+#
+# BULLETTRAIN_PROMPT_ORDER=(
+#   time
+#   context
+#   dir
+#   git
+# )
+#
+# BULLETTRAIN_TIME_BG="yellow"
+# BULLETTRAIN_TIME_FG="default"
+#
+# BULLETTRAIN_CONTEXT_BG="blue"
+# BULLETTRAIN_CONTEXT_FG="default"
+# # BULLETTRAIN_CONTEXT_DEFAULT_USER="dblyon"
+# BULLETTRAIN_CONTEXT_HOSTNAME="ody"
+# BULLETTRAIN_DIR_BG="cyan"
+# BULLETTRAIN_DIR_FG="white"
+# BULLETTRAIN_GIT_BG="black"
+# BULLETTRAIN_GIT_FG="default"
+# source $ZSH/oh-my-zsh.sh
 ####### DBL modifications below
 #### from https://powerline.readthedocs.io/en/latest/usage/shell-profmpts.html#zsh-prompt
 # pip show powerline-status
@@ -258,10 +224,7 @@ zstyle ':completion:*:history-words' list true
 zstyle ':completion:*:history-words' menu yes
 
 # Add any custom extensions here
-compctl -k "( login.cbs.dtu.dk )" scp # change this to the servers you access often
-
 autoload -Uz compinit && compinit -i
-
 ################################################################################
 # Functions
 
@@ -283,12 +246,9 @@ function precmd {
 }
 
 export PATH="/usr/local/sbin:$PATH"
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="/usr/local/opt/qt/bin:$PATH"
+#export PATH="$PATH:$HOME/.rvm/bin"
+#export PATH="/usr/local/opt/qt/bin:$PATH"
 ########################################################################################################################
 ### from https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/ for dotfiles on github
 alias config='/usr/local/bin/git --git-dir=/Users/dblyon/.cfg/ --work-tree=/Users/dblyon'
@@ -309,3 +269,69 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+################################################################################
+### Set up the prompt
+setopt promptsubst # enable substitution in prompt
+unsetopt promptcr
+
+# Available colours
+# for colour in {0..255}; do echo -e "\e[38;05;${colour}m $colour Test"; done
+# for code in 53 80 95 180 28 209 18 16 52 88 124 130 215 117 111 105 69 20 211 ; do echo -e "\e[38;05;${code}m $code: Selected"; done
+COLOURS="
+\e[mm         grey
+\e[1m1m
+\e[0;30m0;30m black
+\e[0;31m0;31m white
+\e[0;32m0;32m red
+\e[0;33m0;33m yellow
+\e[0;34m0;34m blue
+\e[0;35m0;35m green
+\e[0;36m0;36m cyan
+\e[0;37m0;37m purple
+\e[1;30m1;30m
+\e[1;31m1;31m
+\e[1;32m1;32m
+\e[1;33m1;33m
+\e[1;34m1;34m
+\e[1;35m1;35m
+\e[1;36m1;36m
+\e[1;37m1;37m
+"
+# one line old prompt
+#PS1=$'%{\e[0;35m%}%T{%{\e[0;37m%}%n@%m%{\e[0;35m%}}%?%# %{\e[0;37m%}'
+#RPROMPT=$'%{\e[0;30m%}%B%~%b%{\e[0;37m%}'
+
+# variables for prompt
+PS1_TIME="%{%F{52}%}%T"
+PS1_CMDNO="%{%F{52}%}%h"
+PS1_GIT="%{%F{223}%}"
+
+PS1_USER_HOST="%{%F{33}%}%n%{%F{238}%}@%{%F{33}%}%m%{%F{238}%}[%y]"
+PS1_DIR="%{%F{45}%}%~"
+PS1_ERROR_CODE="%(? %{%F{33}%} %{%F{124}%})%?"
+PS1_REPO="%{%F{210}%}"
+PS1_PRMT="%{%F{33}%}%# %{%F{grey}%}"
+PS1_OPEN_BR="%{%F{238}%}("
+PS1_CLOSE_BR="%{%F{238}%})"
+PS1_MID_BR="%{%F{238}%})-("
+
+# TODO don't have git_prompt_info working yet
+#PS1='
+#$PS1_OPEN_BR$PS1_ERROR_CODE$PS1_MID_BR$PS1_TIME$PS1_MID_BR$PS1_USER_HOST$PS1_MID_BR$PS1_DIR$PS1_CLOSE_BR
+#$PS1_OPEN_BR$PS1_CMDNO$PS1_MID_BR$PS1_COL$(repo_prompt_char)$PS1_CLOSE_BR$PS1_COL$(hg_prompt_info)$PS1_COL$(git_prompt_info)$PS1_PRMT'
+
+if [[ $HOST == $LOCAL ]]; then
+PS1='
+$PS1_OPEN_BR$PS1_USER_HOST$PS1_MID_BR$PS1_DIR$PS1_CLOSE_BR
+$PS1_OPEN_BR$PS1_ERROR_CODE$PS1_MID_BR$PS1_REPO$(repo_prompt_char)$PS1_CLOSE_BR$PS1_PRMT'
+
+else
+    PS1_ERROR_CODE="%(? %{%F{88}%} %{%F{124}%})%?"
+    PS1_USER_HOST="%{%F{88}%}%n%{%F{238}%}@%{%F{88}%}%m%{%F{238}%}[%y]"
+    PS1_DIR="%{%F{95}%}%~"
+    PS1_PRMT="%{%F{88}%}%# %{%F{grey}%}"
+    PS1='
+$PS1_OPEN_BR$PS1_USER_HOST$PS1_MID_BR$PS1_DIR$PS1_CLOSE_BR
+$PS1_OPEN_BR$PS1_ERROR_CODE$PS1_CLOSE_BR$PS1_PRMT'
+fi
+################################################################################

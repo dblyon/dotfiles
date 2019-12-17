@@ -23,7 +23,7 @@
 	<key>BracketedPasteMode</key>
 	<true/>
 	<key>CheckTestRelease</key>
-	<true/>
+	<false/>
 	<key>ClosingHotkeySwitchesSpaces</key>
 	<true/>
 	<key>CommandSelection</key>
@@ -1858,6 +1858,8 @@
 	<false/>
 	<key>DisableFullscreenTransparency</key>
 	<false/>
+	<key>DoubleClickPerformsSmartSelection</key>
+	<true/>
 	<key>EnableAPIServer</key>
 	<true/>
 	<key>EnableRendezvous</key>
@@ -1971,15 +1973,15 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>483 761 606 456 0 0 2560 1417 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>-920 747 400 129 -1440 186 1440 877 </string>
+	<string>640 673 400 129 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>2930 731 700 622 2560 540 1440 877 </string>
+	<string>2930 191 700 622 2560 0 1440 877 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>-1171 593 606 469 -1440 186 1440 878 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>-1210 512 770 429 -1440 186 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1680 1027 0 0 1680 1027 </string>
+	<string>2560 0 1440 877 2560 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>31 401 665 592 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
@@ -2886,12 +2888,14 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
-		<string>3.3.4beta1</string>
+		<string>3.3.7beta4</string>
 		<string>3.3.1beta1</string>
+		<string>3.3.0beta5</string>
+		<string>3.3.4beta1</string>
 		<string>3.3.5beta3</string>
 		<string>3.3.7beta1</string>
-		<string>3.3.0beta5</string>
 		<string>3.3.0beta11</string>
+		<string>3.3.8beta1</string>
 	</array>
 	<key>NoSyncDisablePromotions</key>
 	<true/>
@@ -2907,7 +2911,7 @@
 		<key>screenFrame</key>
 		<string>{{2560, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{2829, 595}</string>
+		<string>{2826, 841}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -2920,7 +2924,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>83B8B691-A18B-4407-AF7C-FE5B3C14520D</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>36</integer>
+	<integer>45</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3661,16 +3665,6 @@
 			</dict>
 		</array>
 	</dict>
-	<key>NoSyncSearchHistory</key>
-	<array>
-		<string>python-virtual-environments/env/lib/python2.7/site-packages/wheel/egg2wheel.py</string>
-		<string>student</string>
-		<string>rege</string>
-	</array>
-	<key>NoSyncSearchHistory2</key>
-	<array>
-		<string>airb</string>
-	</array>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>486647360.38572901</real>
 	<key>NoSyncTimeOfLastPromo</key>
@@ -3742,6 +3736,8 @@
 	<true/>
 	<key>PromptOnQuit</key>
 	<true/>
+	<key>PromptOnQuitEvenIfThereAreNoWindows</key>
+	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<false/>
 	<key>RightCommand</key>
@@ -3753,13 +3749,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing_new.xml?shard=20</string>
+	<string>https://iterm2.com/appcasts/final_new.xml?shard=20</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-11-19T11:59:51Z</date>
-	<key>SUSkippedVersion</key>
-	<string>3.3.7beta4</string>
+	<date>2019-12-13T17:37:42Z</date>
 	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3791,7 +3785,7 @@
 	<key>TmuxDashboardLimit</key>
 	<integer>10</integer>
 	<key>TripleClickSelectsFullWrappedLines</key>
-	<false/>
+	<true/>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -3819,7 +3813,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.7beta1</string>
+	<string>3.3.8beta1</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
