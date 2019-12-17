@@ -81,7 +81,7 @@ setopt AUTOPUSHD
 setopt PUSHDIGNOREDUPS
 setopt pushdsilent
 setopt pushdtohome
-# alias d='dirs -v'
+alias d='dirs -v'
 # for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
 # set up control + underscore to bring back the last word of the last line
@@ -140,18 +140,13 @@ fi
   fi
 # fi
 
-
 # if on Linux and using GNU ls, then uncomment the following line
 # if [ "uname" = "Linux" ]; then
   # alias ls='ls --color=auto'
 # fi
 
-
-
 # tree command change colors
 export TREE_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:*.fasta=35:*.fa=35'
-
-
 ################################################################################
 ################################################################################
 # Completion
@@ -238,22 +233,22 @@ COLOURS="
 \e[1;36m1;36m
 \e[1;37m1;37m
 "
-CLICOLOR=1
-LSCOLORS=ExFxCxDxBxegedabagacad
-COLOR_BLUE='\e[0;34m'
-COLOR_LIGHT_BLUE='\e[1;34m'
-COLOR_GREEN='\e[0;32m'
-COLOR_LIGHT_GREEN='\e[1;32m'
-COLOR_CYAN='\e[0;36m'
-COLOR_LIGHT_CYAN='\e[1;36m'
-COLOR_RED='\e[0;31m'
-COLOR_LIGHT_RED='\e[1;31m'
-COLOR_PURPLE='\e[0;35m'
-COLOR_LIGHT_PURPLE='\e[1;35m'
-COLOR_BROWN='\e[0;33m'
-COLOR_YELLOW='\e[1;33m'
-COLOR_GRAY='\e[0;30m'
-COLOR_LIGHT_GRAY='\e[0;37m'
+# CLICOLOR=1
+# LSCOLORS=ExFxCxDxBxegedabagacad
+# COLOR_BLUE='\e[0;34m'
+# COLOR_LIGHT_BLUE='\e[1;34m'
+# COLOR_GREEN='\e[0;32m'
+# COLOR_LIGHT_GREEN='\e[1;32m'
+# COLOR_CYAN='\e[0;36m'
+# COLOR_LIGHT_CYAN='\e[1;36m'
+# COLOR_RED='\e[0;31m'
+# COLOR_LIGHT_RED='\e[1;31m'
+# COLOR_PURPLE='\e[0;35m'
+# COLOR_LIGHT_PURPLE='\e[1;35m'
+# COLOR_BROWN='\e[0;33m'
+# COLOR_YELLOW='\e[1;33m'
+# COLOR_GRAY='\e[0;30m'
+# COLOR_LIGHT_GRAY='\e[0;37m'
 # variables for prompt
 PS1_TIME="%{%F{52}%}%T"
 PS1_CMDNO="%{%F{52}%}%h"
@@ -261,16 +256,18 @@ PS1_GIT="%{%F{223}%}"
 PS1_REPO="%{%F{210}%}"
 PS1_ERROR_CODE="%(? %{%F{88}%} %{%F{124}%})%? "
 PS1_USER_HOST="%{%F{cyan}%}%n%{%F{cyan}%}@%{%F{cyan}%}%m "
-PS1_DIR="%{%F{blue}%}%~"
-PS1_PRMT="%{%F{green}%}%# %{%F{grey}%}"
+PS1_DIR="%{%F{39}%}%~"
+PS1_PRMT="%{%F{51}%}%# %{%F{grey}%}"
 if [[ $HOST == $LOCAL ]]; then
 PS1='
-PS1_USER_HOST$PS1_MID_BR$PS1_DIR
-$PS1_MID_BR$PS1_REPO$(repo_prompt_char)$PS1_PRMT'
+$PS1_USER_HOST$PS1_DIR
+$PS1_REPO$(repo_prompt_char)$PS1_PRMT'
 else
     PS1='
 $PS1_USER_HOST$PS1_DIR
 $PS1_PRMT'
 fi
+# DBL choices for blue/cyan light color for dark background
+# 33-51, 75-87, 118-123
 ########################################################################################################################
 ### https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
