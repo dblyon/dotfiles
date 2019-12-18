@@ -1,38 +1,39 @@
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
+###############################################################################################################################################################
+###############################################################################################################################################################
 ### ODY
 # if [ "$OSTYPE" = "Darwin" ]; then
-  # echo "Bubu was here";
-  source ~/.profile
+source ~/.profile
 
-  alias opena="open -a Atom"
-  alias bio="cd ~/modules/uzh/bio134"
-  alias modules="cd /Users/dblyon/modules"
-  alias commands="cd ~/SynologyDrive/commands/"
-  alias cheat="cd /Users/dblyon/SynologyDrive/CheatSheets"
-  alias ago="cd ~/modules/cpr/agotool"
-  alias syncago="rsync -rtuva dblyon@imlslnx-atlas.uzh.ch://home/dblyon/agotool/ /Users/dblyon/modules/cpr/agotool/ && rsync -rtuva /Users/dblyon/modules/cpr/agotool/ dblyon@imlslnx-atlas.uzh.ch://home/dblyon/agotool/"
-  alias cdc='cd ~/SynologyDrive/CPR/'
-  alias pwdcp="pwd | tr -d '\n' | pbcopy"
-  alias gimp="/Applications/GIMP.app/Contents/MacOS/GIMP"
-  alias mounthome="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo4/dblyon /Volumes/mnt/home/ -o defer_permissions -o volname=home -o follow_symlinks"
-  alias umounthome="umount /Volumes/mnt/home/"
-  alias home="/mnt/home"
-  alias mountfive="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon /Volumes/mnt/mnemo5/dblyon -o defer_permissions -o volname=home -o follow_symlinks"
-  alias umountfive="umount /Volumes/mnt/mnemo5/dblyon"
-  alias mnt5="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon/ /Volumes/mnt/mnemo5/dblyon/ -o defer_permissions -o volname=mnemo5 -o follow_symlinks"
-  alias umnt5="umount /Volumes/mnt/mnemo5/dblyon"
+alias opena="open -a Atom"
+alias bio="cd ~/modules/uzh/bio134"
+alias modules="cd /Users/dblyon/modules"
+alias commands="cd ~/SynologyDrive/commands/"
+alias cheat="cd /Users/dblyon/SynologyDrive/CheatSheets"
+alias ago="cd ~/modules/cpr/agotool"
+alias syncago="rsync -rtuva dblyon@imlslnx-atlas.uzh.ch://home/dblyon/agotool/ /Users/dblyon/modules/cpr/agotool/ && rsync -rtuva /Users/dblyon/modules/cpr/agotool/ dblyon@imlslnx-atlas.uzh.ch://home/dblyon/agotool/"
+alias cdc='cd ~/SynologyDrive/CPR/'
+alias pwdcp="pwd | tr -d '\n' | pbcopy"
+alias gimp="/Applications/GIMP.app/Contents/MacOS/GIMP"
+alias mounthome="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo4/dblyon /Volumes/mnt/home/ -o defer_permissions -o volname=home -o follow_symlinks"
+alias umounthome="umount /Volumes/mnt/home/"
+alias home="/mnt/home"
+alias mountfive="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon /Volumes/mnt/mnemo5/dblyon -o defer_permissions -o volname=home -o follow_symlinks"
+alias umountfive="umount /Volumes/mnt/mnemo5/dblyon"
+alias mnt5="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon/ /Volumes/mnt/mnemo5/dblyon/ -o defer_permissions -o volname=mnemo5 -o follow_symlinks"
+alias umnt5="umount /Volumes/mnt/mnemo5/dblyon"
 
-  export PATH=/Users/dblyon/anaconda3/bin:/usr/local/bin:/Users/dblyon/.rvm/gems/ruby-2.4.0/bin:/usr/local:/usr/local/Cellar:/Users/dblyon/bin:/Users/dblyon/install/bin:/Users/dblyon/install:/Users/dblyon/install/crux-3.1.Darwin.i386/bin:/Users/dblyon/install/qcachegrind/qcachegrind.app/Contents/MacOS:/Users/dblyon/scripts:$PATH
-  export PYTHONPATH=$PYTHONPATH:/Users/dblyon/modules/metaprot:/Users/dblyon/modules/cpr/metaprot/sql:/Users/dblyon/miniconda3:/Users/dblyon/Downloads/introduction_to_ml_with_python
+export PATH=/Users/dblyon/anaconda3/bin:/usr/local/bin:/Users/dblyon/.rvm/gems/ruby-2.4.0/bin:/usr/local:/usr/local/Cellar:/Users/dblyon/bin:/Users/dblyon/install/bin:/Users/dblyon/install:/Users/dblyon/install/crux-3.1.Darwin.i386/bin:/Users/dblyon/install/qcachegrind/qcachegrind.app/Contents/MacOS:/Users/dblyon/scripts:$PATH
+export PYTHONPATH=$PYTHONPATH:/Users/dblyon/modules/metaprot:/Users/dblyon/modules/cpr/metaprot/sql:/Users/dblyon/miniconda3:/Users/dblyon/Downloads/introduction_to_ml_with_python
 # fi
-#
+### Atlas
 # if [ "uname" = "Linux" ]; then
-  alias ago="cd /mnt/mnemo5/dblyon/agotool"
+#alias ago="cd /mnt/mnemo5/dblyon/agotool"
 # fi
-
+###############################################################################################################################################################
+###############################################################################################################################################################
 # Servers
 alias san="ssh dblyon@san.embl.de"
 alias pisces="ssh dblyon@pisces.meringlab.org"
@@ -52,10 +53,9 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias snakels="snakemake -l | tr '\n' ' '"
 alias pc="python setup.py build_ext --inplace -f"
-
+###############################################################################################################################################################
 ### Snakemake autocompletion
 # compdef _gnu_generic snakemake
-
 ### zsh match case insensitve patterns
 unsetopt CASE_GLOB
 ################################################################################
@@ -206,67 +206,8 @@ export PATH="/usr/local/sbin:$PATH"
 ########################################################################################################################
 alias config='/usr/local/bin/git --git-dir=/Users/dblyon/.cfg/ --work-tree=/Users/dblyon'
 ########################################################################################################################
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-### ODY
-# if [ "$OSTYPE" = "Darwin" ]; then
-  echo "Bubu was here";
-  source ~/.profile
-
-  alias opena="open -a Atom"
-  alias bio="cd ~/modules/uzh/bio134"
-  alias modules="cd /Users/dblyon/modules"
-  alias commands="cd ~/SynologyDrive/commands/"
-  alias cheat="cd /Users/dblyon/SynologyDrive/CheatSheets"
-  alias ago="cd ~/modules/cpr/agotool"
-  alias syncago="rsync -rtuva dblyon@imlslnx-atlas.uzh.ch://home/dblyon/agotool/ /Users/dblyon/modules/cpr/agotool/ && rsync -rtuva /Users/dblyon/modules/cpr/agotool/ dblyon@imlslnx-atlas.uzh.ch://home/dblyon/agotool/"
-  alias cdc='cd ~/SynologyDrive/CPR/'
-  alias pwdcp="pwd | tr -d '\n' | pbcopy"
-  alias gimp="/Applications/GIMP.app/Contents/MacOS/GIMP"
-  alias mounthome="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo4/dblyon /Volumes/mnt/home/ -o defer_permissions -o volname=home -o follow_symlinks"
-  alias umounthome="umount /Volumes/mnt/home/"
-  alias home="/mnt/home"
-  alias mountfive="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon /Volumes/mnt/mnemo5/dblyon -o defer_permissions -o volname=home -o follow_symlinks"
-  alias umountfive="umount /Volumes/mnt/mnemo5/dblyon"
-  alias mnt5="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon/ /Volumes/mnt/mnemo5/dblyon/ -o defer_permissions -o volname=mnemo5 -o follow_symlinks"
-  alias umnt5="umount /Volumes/mnt/mnemo5/dblyon"
-
-  export PATH=/Users/dblyon/anaconda3/bin:/usr/local/bin:/Users/dblyon/.rvm/gems/ruby-2.4.0/bin:/usr/local:/usr/local/Cellar:/Users/dblyon/bin:/Users/dblyon/install/bin:/Users/dblyon/install:/Users/dblyon/install/crux-3.1.Darwin.i386/bin:/Users/dblyon/install/qcachegrind/qcachegrind.app/Contents/MacOS:/Users/dblyon/scripts:$PATH
-  export PYTHONPATH=$PYTHONPATH:/Users/dblyon/modules/metaprot:/Users/dblyon/modules/cpr/metaprot/sql:/Users/dblyon/miniconda3:/Users/dblyon/Downloads/introduction_to_ml_with_python
-# fi
-#
-# if [ "uname" = "Linux" ]; then
-  alias ago="cd /mnt/mnemo5/dblyon/agotool"
-# fi
-
-# Servers
-alias san="ssh dblyon@san.embl.de"
-alias pisces="ssh dblyon@pisces.meringlab.org"
-alias aquarius="ssh -p 22 dblyon@aquarius.meringlab.org"
-alias atlas="ssh dblyon@imlslnx-atlas.uzh.ch"
-alias gaia="ssh dblyon@imlslnx-gaia.uzh.ch"
-alias sagi="ssh dblyon2@imlslnx-sagittarius.uzh.ch"
-# gerneral
-alias dc="docker-compose"
-alias ll='ls -lhtr'
-alias lt='ls -lhtr' # oh my zshell or something else is overwriting 'll' alias
-alias lr='ls -lhtr' # oh my zshell or something else is overwriting 'll' alias
-alias lls='ls -lhSr'
-alias ld="ls -ld */"  # List in long format, only directories
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias snakels="snakemake -l | tr '\n' ' '"
-alias pc="python setup.py build_ext --inplace -f"
-
-### Snakemake autocompletion
-# compdef _gnu_generic snakemake
-
 ### zsh match case insensitve patterns
 unsetopt CASE_GLOB
-################################################################################
 ###############################################################################
 # History settings
 export HISTFILE=~/.history
@@ -278,7 +219,6 @@ setopt INC_APPEND_HISTORY  # append as we execute, not when we leave the shell
 setopt SHARE_HISTORY       # share one history between all open shells
 # enable **/file expansion, negation [^ab]*, and more
 setopt EXTENDED_GLOB
-################################################################################
 ################################################################################
 # Aliases and mappings
 # alias for mass move
