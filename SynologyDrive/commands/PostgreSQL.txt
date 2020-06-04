@@ -1,3 +1,42 @@
+### Aquarius
+psql -d agotool -p 8001
+sudo -u postgres psql -d agotool -p 8001
+
+
+
+### install PostgreSQL on Ubuntu, change port to non-default port
+from https://tecadmin.net/install-postgresql-server-on-ubuntu/
+sudo apt-get install wget ca-certificates
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib
+sudo su - postgres
+psql
+CREATE ROLE agotool WITH LOGIN CREATEDB ENCRYPTED PASSWORD 'publicdata';
+\q
+su dblyon
+# can't login with sudo -u agotool psql
+sudo -u postgres psql
+CREATE DATABASE agotool;
+CREATE ROLE agotool WITH SUPERUSER CREATEDB LOGIN ENCRYPTED PASSWORD 'publicdata';
+GRANT ALL PRIVILEGES ON DATABASE agotool TO agotool;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO agotool; # --> this is missing after update
+
+CREATE ROLE dblyon WITH SUPERUSER CREATEDB LOGIN ENCRYPTED PASSWORD 'publicdata';
+GRANT ALL PRIVILEGES ON DATABASE agotool TO dblyon;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO dblyon;
+
+psql -d agotool --host=localhost -U dblyon # works on Atlas
+psql -d agotool --host=localhost # works on Atlas provide password "publicdata"
+sudo -u postgres psql # works on Atlas
+
+### data directory, location of data
+/usr/local/var/postgres # on MacOS X
+psql - d
+SHOW DATA_DIRECTORY;
+
+
 ############# after OSX update
 gem install lunchy
 lunchy start postgres

@@ -69,3 +69,37 @@ python setup.py build_ext --inplace
 # solution
 https://stackoverflow.com/questions/52509602/cant-compile-c-program-on-a-mac-after-upgrade-to-mojave
 open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+
+
+--> install this for Cython !!!
+conda install -c anaconda gcc
+conda install -c anaconda libcxx
+and add
+/Users/dblyon/anaconda3
+to the path in ~/.zshrc or ~/.bashrc
+
+
+
+# # not used yet
+# %%cython
+# # distutils: language = c++
+# from libcpp.vector cimport vector
+# from libcpp.set cimport set
+# # --> set
+# # cdef vector[int] vect
+
+
+# ### code block needed for iPython notebook, when copying code from run_cythonized.pyx
+# %%cython
+
+
+# import numpy as np
+# import pandas as pd
+# from cython cimport boundscheck, wraparound, cdivision, nonecheck
+# from fisher import pvalue
+# cimport cython
+# cimport numpy as np
+# ctypedef np.uint8_t uint8
+# from cython.parallel cimport prange
+
+# import variables, query
