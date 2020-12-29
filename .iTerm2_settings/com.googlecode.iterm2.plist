@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AboutToPasteTabsWithCancel</key>
+	<true/>
+	<key>AboutToPasteTabsWithCancel_selection</key>
+	<integer>2</integer>
 	<key>AdjustWindowForFontSizeChange</key>
 	<true/>
 	<key>AllowClipboardAccess</key>
@@ -1863,7 +1867,7 @@
 	<key>DoubleClickPerformsSmartSelection</key>
 	<true/>
 	<key>EnableAPIServer</key>
-	<true/>
+	<false/>
 	<key>EnableRendezvous</key>
 	<false/>
 	<key>FocusFollowsMouse</key>
@@ -1913,11 +1917,15 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/SynologyDrive</string>
+	<string>~/SynologyDrive/Dotfiles</string>
+	<key>NSNavLastUserSetHideExtensionButtonState</key>
+	<false/>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSNavPanelExpandedSizeForSaveMode</key>
-	<string>{712, 521}</string>
+	<string>{841, 521}</string>
+	<key>NSNavPanelExpandedStateForSaveMode</key>
+	<true/>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -1972,18 +1980,20 @@
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>-620 177 445 77 -1440 0 1440 878 </string>
+	<key>NSWindow Frame NSNavPanelAutosaveName</key>
+	<string>148 165 841 543 0 0 1440 877 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>483 761 606 456 0 0 2560 1417 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>3640 966 400 129 2560 0 2560 1417 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>3490 596 700 622 2560 0 2560 1417 </string>
+	<string>610 326 700 622 0 0 1920 1057 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>-1171 593 606 469 -1440 186 1440 878 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>-1210 512 770 429 -1440 186 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2560 0 2555 1417 2560 0 2560 1417 </string>
+	<string>1920 0 1440 877 1920 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>31 401 665 592 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
@@ -2890,15 +2900,22 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
-		<string>3.3.7beta4</string>
-		<string>3.3.8</string>
-		<string>3.3.1beta1</string>
-		<string>3.3.0beta5</string>
-		<string>3.3.4beta1</string>
-		<string>3.3.5beta3</string>
 		<string>3.3.7beta1</string>
 		<string>3.3.0beta11</string>
+		<string>3.3.8</string>
+		<string>3.3.1beta1</string>
+		<string>3.3.12</string>
+		<string>3.3.11</string>
+		<string>3.3.5beta3</string>
+		<string>3.3.4beta1</string>
+		<string>3.3.7beta4</string>
+		<string>3.3.9</string>
+		<string>3.3.0beta5</string>
 		<string>3.3.8beta1</string>
+	</array>
+	<key>NoSyncBFPRecents</key>
+	<array>
+		<string>Meslo LG L DZ for Powerline</string>
 	</array>
 	<key>NoSyncDisablePromotions</key>
 	<true/>
@@ -2912,9 +2929,9 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{2560, 0}, {2560, 1440}}</string>
+		<string>{{0, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{3572, 900}</string>
+		<string>{257, 764}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -2927,7 +2944,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>83B8B691-A18B-4407-AF7C-FE5B3C14520D</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>53</integer>
+	<integer>84</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3668,6 +3685,11 @@
 			</dict>
 		</array>
 	</dict>
+	<key>NoSyncSavePanelSavedSettings_SaveProfile</key>
+	<dict>
+		<key>Initial Directory</key>
+		<string>/Users/dblyon/SynologyDrive</string>
+	</dict>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>486647360.38572901</real>
 	<key>NoSyncTimeOfLastPromo</key>
@@ -3756,7 +3778,9 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-02-10T15:27:24Z</date>
+	<date>2020-08-27T15:52:21Z</date>
+	<key>SUUpdateGroupIdentifier</key>
+	<integer>317733665</integer>
 	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3816,7 +3840,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.8</string>
+	<string>3.3.12</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
