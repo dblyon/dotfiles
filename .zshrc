@@ -15,6 +15,7 @@ alias ago="cd ~/modules/cpr/agotool"
 alias tables="cd ~/modules/cpr/agotool/data/PostgreSQL/tables"
 alias pax="cd /Users/dblyon/modules/uzh/paxdb-data-pipeline"
 alias syncago="rsync -rtuva dblyon@imlslnx-atlas.uzh.ch://home/dblyon/agotool/ /Users/dblyon/modules/cpr/agotool/ && rsync -rtuva /Users/dblyon/modules/cpr/agotool/ dblyon@imlslnx-atlas.uzh.ch://home/dblyon/agotool/"
+alias syncagomasterff="rsync -avP dblyon@phobos.mls.uzh.ch:/scratch/dblyon/agotool/data/PostgreSQL/tables/aGOtool_flatfiles_current.tar.gz ~/modules/cpr/agotool/data/PostgreSQL/tables/"
 alias cdc='cd ~/SynologyDrive/CPR/'
 alias pwdcp="pwd | tr -d '\n' | pbcopy"
 alias gimp="/Applications/GIMP.app/Contents/MacOS/GIMP"
@@ -27,7 +28,6 @@ alias mnt5="sshfs dblyon@imlslnx-atlas.uzh.ch:/mnt/mnemo5/dblyon/ /Volumes/mnt/m
 alias umnt5="umount /Volumes/mnt/mnemo5/dblyon"
 ### CoolCat
 alias CoolCat="ssh -p 22222 dblyon@192.168.1.100"
-
 
 export PATH=/Users/dblyon/anaconda3/bin:/usr/local/bin:/usr/local:/usr/local/Cellar:/Users/dblyon/bin:/Users/dblyon/install/bin:/Users/dblyon/install/qcachegrind/qcachegrind.app/Contents/MacOS:/Users/dblyon/scripts:/Users/dblyon/anaconda3:$PATH
 # /Users/dblyon/.rvm/gems/ruby-2.4.0/bin:/Users/dblyon/install/crux-3.1.Darwin.i386/bin:
@@ -42,6 +42,7 @@ export PYTHONPATH=$PYTHONPATH:/Users/dblyon/modules/cpr/agotool/python:
 ###############################################################################################################################################################
 # Servers
 alias san="ssh dblyon@san.embl.de"
+alias digamma="ssh dblyon@digamma.embl.de"
 alias pisces="ssh dblyon@pisces.meringlab.org"
 alias aquarius="ssh -p 22 dblyon@aquarius.meringlab.org"
 alias atlas="ssh dblyon@imlslnx-atlas.uzh.ch"
@@ -192,9 +193,10 @@ function precmd {
 }
 export PATH="/usr/local/sbin:$PATH"
 ########################################################################################################################
-# set up coloured ls output
+# set up coloured ls output  # https://linuxhint.com/ls_colors_bash/
 if [[ $TERM =~ "-256color$" ]]; then
-    export LS_COLORS='di=\e[38;5;33:ln=35:so=36:pi=32:ex=33:bd=34;46:cd=34;43:su=33;44:sg=33;42:tw=34;43:ow=34;41:*.fasta=35:*.fa=35:'
+    # export LS_COLORS='di=\e[38;5;33:ln=35:so=36:pi=32:ex=33:bd=34;46:cd=34;43:su=33;44:sg=33;42:tw=34;43:ow=34;41:*.fasta=35:*.fa=35:'
+    export LS_COLORS='di=\e[38;5;33:ln=35:so=36:pi=32:ex=31:bd=34;46:cd=34;43:su=33;44:sg=33;42:tw=34;43:ow=34;41:*.fasta=35:*.fa=35:'
 else
     export LS_COLORS='di=34:ln=35:so=36:pi=32:ex=33:bd=34;46:cd=34;43:su=33;44:sg=33;42:tw=34;43:ow=34;41:*.fasta=35:*.fa=35'
 fi
@@ -231,7 +233,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-conda activate agotool2
+conda activate agotool
 ########################################################################################################################
 ### Set up the prompt
 setopt promptsubst # enable substitution in prompt
