@@ -5,15 +5,17 @@ export LANG=en_US.UTF-8
 ### ODY
 # if [ "$OSTYPE" = "Darwin" ]; then
 source ~/.profile
+### Monte Rosa Therapeutics
+alias egy="cd /Volumes/monterosatx/Private/dlyon"
+alias sshbase="ssh david@192.168.146.177"
 alias utop="uwsgitop 127.0.0.1:9191"
 alias opena="open -a Atom"
-alias bio="cd ~/modules/uzh/bio134"
-alias modules="cd /Users/dblyon/modules"
+alias modules="cd ~/modules"
 alias commands="cd ~/SynologyDrive/commands/"
-alias cheat="cd /Users/dblyon/SynologyDrive/CheatSheets"
+alias cheat="cd ~/SynologyDrive/CheatSheets"
 alias ago="cd ~/modules/cpr/agotool"
 alias tables="cd ~/modules/cpr/agotool/data/PostgreSQL/tables"
-alias pax="cd /Users/dblyon/modules/uzh/paxdb-data-pipeline"
+alias pax="cd ~/modules/uzh/paxdb-data-pipeline"
 alias syncago="rsync -rtuva dblyon@imlslnx-atlas.uzh.ch://home/dblyon/agotool/ /Users/dblyon/modules/cpr/agotool/ && rsync -rtuva /Users/dblyon/modules/cpr/agotool/ dblyon@imlslnx-atlas.uzh.ch://home/dblyon/agotool/"
 alias syncagomasterff="rsync -avP dblyon@phobos.mls.uzh.ch:/scratch/dblyon/agotool/data/PostgreSQL/tables/aGOtool_flatfiles_current.tar.gz ~/modules/cpr/agotool/data/PostgreSQL/tables/"
 alias cdc='cd ~/SynologyDrive/CPR/'
@@ -29,15 +31,9 @@ alias umnt5="umount /Volumes/mnt/mnemo5/dblyon"
 ### CoolCat
 alias CoolCat="ssh -p 22222 dblyon@192.168.1.100"
 
-export PATH=/Users/dblyon/anaconda3/bin:/usr/local/bin:/usr/local:/usr/local/Cellar:/Users/dblyon/bin:/Users/dblyon/install/bin:/Users/dblyon/install/qcachegrind/qcachegrind.app/Contents/MacOS:/Users/dblyon/scripts:/Users/dblyon/anaconda3:$PATH
+export PATH=:/Users/dlyon/miniforge3/bin/python:/usr/local/bin:/usr/local:/usr/local/Cellar:/Users/dlyon/bin:/Users/dlyon/install/bin:/Users/dlyon/install/qcachegrind/qcachegrind.app/Contents/MacOS:/Users/dlyon/scripts::$PATH
 # /Users/dblyon/.rvm/gems/ruby-2.4.0/bin:/Users/dblyon/install/crux-3.1.Darwin.i386/bin:
 export PYTHONPATH=$PYTHONPATH:/Users/dblyon/modules/cpr/agotool/python:
-# fi
-### Atlas
-# export PATH=:/mnt/mnemo5/dblyon/install/anaconda3/bin:$PATH
-# if [ "uname" = "Linux" ]; then
-#alias ago="cd /mnt/mnemo5/dblyon/agotool"
-# fi
 ###############################################################################################################################################################
 ###############################################################################################################################################################
 # Servers
@@ -58,8 +54,9 @@ alias sshrsync="ssh -L 19222:imlslnx-gaia.uzh.ch:22 dblyon@imlslnx-sagittarius.u
 # alias agossh="ssh -L 8899:imlslnx-gaia.uzh.ch:8899 imlslnx-sagittarius.uzh.ch" # agotool running on gaia, ssh to sagittarius and from there to gaia with port forwarding --> https://localhost:8888
 # gerneral
 alias dc="docker-compose"
-alias ll='ls -lhtr'
-alias lt='ls -lhtr' # oh my zshell or something else is overwriting 'll' alias
+alias ls='ls -G'
+alias ll='ls -lahtr'
+alias lt='ls -lahtr' # oh my zshell or something else is overwriting 'll' alias
 alias lr='ls -lhtr' # oh my zshell or something else is overwriting 'll' alias
 alias lls='ls -lhSr'
 alias ld="ls -ld */"  # List in long format, only directories
@@ -159,7 +156,18 @@ zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' verbose yes
 # Directories
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+# https://superuser.com/questions/700406/zsh-not-recognizing-ls-colors
+
+# export LS_COLORS='di=\e[38;5;33:ln=35:so=36:pi=32:ex=31:bd=34;46:cd=34;43:su=33;44:sg=33;42:tw=34;43:ow=34;41:*.fasta=35:*.fa=35:'
+export CLICOLOR=1
+# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# zstyle ':completion:*' list-colors 'di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+zstyle ':completion:*' list-colors 'di=\e[38;5;33:ln=35:so=36:pi=32:ex=31:bd=34;46:cd=34;43:su=33;44:sg=33;42:tw=34;43:ow=34;41:*.fasta=35:*.fa=35:'
+# export LS_COLORS='di=\e[38;5;33:ln=35:so=36:pi=32:ex=31:bd=34;46:cd=34;43:su=33;44:sg=33;42:tw=34;43:ow=34;41:*.fasta=35:*.fa=35:'
+# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
@@ -216,24 +224,26 @@ fi
 # tree command change colors
 export TREE_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:*.fasta=35:*.fa=35'
 ########################################################################################################################
-alias config='/usr/local/bin/git --git-dir=/Users/dblyon/.cfg/ --work-tree=/Users/dblyon'
-alias dotfiles='/usr/local/bin/git --git-dir=/Users/dblyon/.cfg/ --work-tree=/Users/dblyon'
+### https://www.atlassian.com/git/tutorials/dotfiles
+alias dotfiles='/opt/homebrew/bin/git --git-dir=~/.cfg --work-tree=~'
+# alias config='/opt/homebrew/bin/git --git-dir=~/.cfg/ --work-tree=~'
+alias config='/opt/homebrew/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 ########################################################################################################################
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/dblyon/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/dlyon/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/dblyon/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/dblyon/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/dlyon/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/dlyon/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/dblyon/anaconda3/bin:$PATH"
+        export PATH="/Users/dlyon/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-conda activate agotool
+conda activate base
 ########################################################################################################################
 ### Set up the prompt
 setopt promptsubst # enable substitution in prompt
@@ -300,4 +310,5 @@ fi
 # 33-51, 75-87, 118-123
 ########################################################################################################################
 ### https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
