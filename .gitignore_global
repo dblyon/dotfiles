@@ -44,3 +44,28 @@ Thumbs.db
 .pytest_cache
 
 profiling
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ipython notebook
+.idea/workspace.xml
+.idea
+
+# agotool #
+######################
+gene_association.*
+go-basic.obo
+goslim_generic.obo
+*uniprot-proteome*
+*.tab
+*.tsv
+
+
